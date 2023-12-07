@@ -27,4 +27,12 @@ class Expense {
         self.category = category
     }
     
+    /// Currency String
+    @Transient // <-- Avoid storing property on disk
+    var currentString: String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        return formatter.string(for: amount) ?? ""
+    }
+    
 }

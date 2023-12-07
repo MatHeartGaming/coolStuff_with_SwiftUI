@@ -10,6 +10,10 @@ import SwiftData
 
 struct ExpenseView: View {
     
+    //MARK: - PROPERTIES
+    /// - Environment
+    @Environment(\.modelContext) private var context
+    
     //MARK: - Grouped Expenses Properties
     @Query(sort: [SortDescriptor(\Expense.date, order: .reverse),],
            animation: .snappy) private var allExpenses: [Expense]
@@ -19,6 +23,36 @@ struct ExpenseView: View {
     var body: some View {
         NavigationStack {
             List {
+                ForEach($groupedExpenses) { $group in
+                    Section(group.groupTitle) {
+                        ForEach(group.expenses) { expense in
+                            
+                            /// Card View
+                            ExpenseCardView(expense: expense)
+                                .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                                    /// Delete
+                                    Button {
+                                        context.delete(expense)
+                                        withAnimation {
+                                            group.expenses.removeAll(where: { $0.id == expense.id })
+                                            /// Removing group if no expenses are present
+                                            if group.expenses.isEmpty {
+                                                groupedExpenses.removeAll(where: { $0.id == group.id })
+                                            }
+                                        }
+                                    } label: {
+                                        Image(systemName: "trash")
+                                    } //: DELETE BUTTON
+                                    .tint(.red)
+                                    
+                                    
+                                    
+                                }
+                            
+                        } //: LOOP EXPENSES
+                    } //: LOOP GROUPED EXPENSES
+                } //: LIST
+                
                 
             } //: LIST
             .navigationTitle("Expenses")
@@ -42,12 +76,13 @@ struct ExpenseView: View {
             } //: TOOLBAR
         } //: NAVIGATION
         .onChange(of: allExpenses, initial: true) { oldValue, newValue in
-            if groupedExpenses.isEmpty {
+            if newValue.count > oldValue.count || groupedExpenses.isEmpty {
                 createGroupedExpenses(newValue)
             }
         }
         .sheet(isPresented: $addExpense, content: {
             AddExpenseView()
+                .interactiveDismissDisabled()
         })
     }
     

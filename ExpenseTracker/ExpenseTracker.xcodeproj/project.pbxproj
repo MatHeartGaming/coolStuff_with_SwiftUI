@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE3B7A962B225BAE007311B0 /* ExpenseCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3B7A952B225BAE007311B0 /* ExpenseCardView.swift */; };
 		FE837B4E2B21E68000C6DE03 /* ExpenseTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE837B4D2B21E68000C6DE03 /* ExpenseTrackerApp.swift */; };
 		FE837B502B21E68000C6DE03 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE837B4F2B21E68000C6DE03 /* ContentView.swift */; };
 		FE837B522B21E68100C6DE03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE837B512B21E68100C6DE03 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FE3B7A952B225BAE007311B0 /* ExpenseCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCardView.swift; sourceTree = "<group>"; };
 		FE837B4A2B21E68000C6DE03 /* ExpenseTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExpenseTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE837B4D2B21E68000C6DE03 /* ExpenseTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseTrackerApp.swift; sourceTree = "<group>"; };
 		FE837B4F2B21E68000C6DE03 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				FE837B612B21E8F500C6DE03 /* ExpenseView.swift */,
 				FE837B632B21E98000C6DE03 /* CategoryView.swift */,
 				FE837B672B2202FC00C6DE03 /* AddExpenseView.swift */,
+				FE3B7A952B225BAE007311B0 /* ExpenseCardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 				FE837B5E2B21E6F400C6DE03 /* Expense.swift in Sources */,
 				FE837B662B21FEC300C6DE03 /* GroupedExpense.swift in Sources */,
 				FE837B682B2202FC00C6DE03 /* AddExpenseView.swift in Sources */,
+				FE3B7A962B225BAE007311B0 /* ExpenseCardView.swift in Sources */,
 				FE837B642B21E98000C6DE03 /* CategoryView.swift in Sources */,
 				FE837B502B21E68000C6DE03 /* ContentView.swift in Sources */,
 				FE837B4E2B21E68000C6DE03 /* ExpenseTrackerApp.swift in Sources */,
