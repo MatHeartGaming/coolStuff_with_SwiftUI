@@ -16,6 +16,9 @@
 		FE6C732D2B20D418003047BC /* CustomTF.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6C732C2B20D418003047BC /* CustomTF.swift */; };
 		FE6C732F2B20D6D2003047BC /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6C732E2B20D6D2003047BC /* GradientButton.swift */; };
 		FE6C73312B20DB18003047BC /* Signup.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6C73302B20DB18003047BC /* Signup.swift */; };
+		FE837B1B2B21B93300C6DE03 /* ForgotPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE837B1A2B21B93300C6DE03 /* ForgotPassword.swift */; };
+		FE837B1D2B21C0D400C6DE03 /* ResetPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE837B1C2B21C0D400C6DE03 /* ResetPassword.swift */; };
+		FE837B1F2B21C23B00C6DE03 /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE837B1E2B21C23B00C6DE03 /* OTPView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +32,9 @@
 		FE6C732C2B20D418003047BC /* CustomTF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTF.swift; sourceTree = "<group>"; };
 		FE6C732E2B20D6D2003047BC /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
 		FE6C73302B20DB18003047BC /* Signup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signup.swift; sourceTree = "<group>"; };
+		FE837B1A2B21B93300C6DE03 /* ForgotPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassword.swift; sourceTree = "<group>"; };
+		FE837B1C2B21C0D400C6DE03 /* ResetPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPassword.swift; sourceTree = "<group>"; };
+		FE837B1E2B21C23B00C6DE03 /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +92,9 @@
 				FE6C732C2B20D418003047BC /* CustomTF.swift */,
 				FE6C732E2B20D6D2003047BC /* GradientButton.swift */,
 				FE6C73302B20DB18003047BC /* Signup.swift */,
+				FE837B1A2B21B93300C6DE03 /* ForgotPassword.swift */,
+				FE837B1C2B21C0D400C6DE03 /* ResetPassword.swift */,
+				FE837B1E2B21C23B00C6DE03 /* OTPView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -171,7 +180,10 @@
 				FE6C73312B20DB18003047BC /* Signup.swift in Sources */,
 				FE6C73282B20D25C003047BC /* Login.swift in Sources */,
 				FE6C732F2B20D6D2003047BC /* GradientButton.swift in Sources */,
+				FE837B1D2B21C0D400C6DE03 /* ResetPassword.swift in Sources */,
+				FE837B1B2B21B93300C6DE03 /* ForgotPassword.swift in Sources */,
 				FE6C731B2B20D1D8003047BC /* ContentView.swift in Sources */,
+				FE837B1F2B21C23B00C6DE03 /* OTPView.swift in Sources */,
 				FE6C732B2B20D307003047BC /* View+Extensions.swift in Sources */,
 				FE6C732D2B20D418003047BC /* CustomTF.swift in Sources */,
 				FE6C73192B20D1D8003047BC /* LoginSignupViewApp.swift in Sources */,

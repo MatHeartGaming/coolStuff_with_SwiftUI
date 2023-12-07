@@ -13,6 +13,8 @@ struct Login: View {
     @Binding var showSignup: Bool
     @State private var emailID = ""
     @State private var password = ""
+    @State private var showForgotPassword = false
+    @State private var showResetView = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
@@ -37,7 +39,7 @@ struct Login: View {
                     .padding(.top, 5)
                 
                 Button("Forgot Password") {
-                    
+                    showForgotPassword.toggle()
                 }
                 .font(.callout)
                 .fontWeight(.heavy)
@@ -76,6 +78,31 @@ struct Login: View {
         .padding(.vertical, 15)
         .padding(.horizontal, 25)
         .toolbar(.hidden, for: .navigationBar)
+        /// Asking email address for resetting passworrd
+        .sheet(isPresented: $showForgotPassword, content: {
+            if #available(iOS 16.4, *) {
+                /// Since I wanted custom sheet corners radius
+                ForgotPassword(showResetView: $showResetView)
+                    .presentationDetents([.height(300)])
+                    .presentationCornerRadius(30)
+            } else {
+                ForgotPassword(showResetView: $showResetView)
+                    .presentationDetents([.height(300)])
+            }
+        })
+        /// Resetting new password
+        .sheet(isPresented: $showResetView, content: {
+            if #available(iOS 16.4, *) {
+                /// Since I wanted custom sheet corners radius
+                ResetPassword()
+                    .presentationDetents([.height(350)])
+                    .presentationCornerRadius(30)
+            } else {
+                ResetPassword()
+                    .presentationDetents([.height(350)])
+            }
+        })
+        
     }
 }
 
