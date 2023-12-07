@@ -15,6 +15,8 @@
 		FE837B602B21E73B00C6DE03 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE837B5F2B21E73B00C6DE03 /* Category.swift */; };
 		FE837B622B21E8F500C6DE03 /* ExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE837B612B21E8F500C6DE03 /* ExpenseView.swift */; };
 		FE837B642B21E98000C6DE03 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE837B632B21E98000C6DE03 /* CategoryView.swift */; };
+		FE837B662B21FEC300C6DE03 /* GroupedExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE837B652B21FEC300C6DE03 /* GroupedExpense.swift */; };
+		FE837B682B2202FC00C6DE03 /* AddExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE837B672B2202FC00C6DE03 /* AddExpenseView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		FE837B5F2B21E73B00C6DE03 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		FE837B612B21E8F500C6DE03 /* ExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseView.swift; sourceTree = "<group>"; };
 		FE837B632B21E98000C6DE03 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		FE837B652B21FEC300C6DE03 /* GroupedExpense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupedExpense.swift; sourceTree = "<group>"; };
+		FE837B672B2202FC00C6DE03 /* AddExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +86,7 @@
 			children = (
 				FE837B5D2B21E6F400C6DE03 /* Expense.swift */,
 				FE837B5F2B21E73B00C6DE03 /* Category.swift */,
+				FE837B652B21FEC300C6DE03 /* GroupedExpense.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -91,6 +96,7 @@
 			children = (
 				FE837B612B21E8F500C6DE03 /* ExpenseView.swift */,
 				FE837B632B21E98000C6DE03 /* CategoryView.swift */,
+				FE837B672B2202FC00C6DE03 /* AddExpenseView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -167,6 +173,8 @@
 			files = (
 				FE837B622B21E8F500C6DE03 /* ExpenseView.swift in Sources */,
 				FE837B5E2B21E6F400C6DE03 /* Expense.swift in Sources */,
+				FE837B662B21FEC300C6DE03 /* GroupedExpense.swift in Sources */,
+				FE837B682B2202FC00C6DE03 /* AddExpenseView.swift in Sources */,
 				FE837B642B21E98000C6DE03 /* CategoryView.swift in Sources */,
 				FE837B502B21E68000C6DE03 /* ContentView.swift in Sources */,
 				FE837B4E2B21E68000C6DE03 /* ExpenseTrackerApp.swift in Sources */,
