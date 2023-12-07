@@ -15,6 +15,9 @@ struct Login: View {
     @State private var password = ""
     @State private var showForgotPassword = false
     @State private var showResetView = false
+    /// If you want to ask for OTP
+    @State private var askOTP: Bool = false
+    @State private var otpText: String = ""
     
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
@@ -48,7 +51,7 @@ struct Login: View {
                 
                 /// Login Button
                 GradientButton(title: "Login", icon: "arrow.right") {
-                    
+                    askOTP.toggle()
                 }
                 .hSpacing(.trailing)
                 /// Disabling until data is entered
@@ -99,6 +102,17 @@ struct Login: View {
                     .presentationCornerRadius(30)
             } else {
                 ResetPassword()
+                    .presentationDetents([.height(350)])
+            }
+        })
+        .sheet(isPresented: $askOTP, content: {
+            if #available(iOS 16.4, *) {
+                /// Since I wanted custom sheet corners radius
+                OTPView(otpText: $otpText)
+                    .presentationDetents([.height(350)])
+                    .presentationCornerRadius(30)
+            } else {
+                OTPView(otpText: $otpText)
                     .presentationDetents([.height(350)])
             }
         })

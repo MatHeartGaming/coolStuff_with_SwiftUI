@@ -24,7 +24,7 @@ struct OTPView: View {
                     .font(.title2)
                     .foregroundStyle(.gray)
             }) //: BACK BUTTON
-            .padding(.top, 10)
+            .padding(.top, 15)
             
             Text("Enter OTP")
                 .font(.largeTitle)
@@ -40,17 +40,17 @@ struct OTPView: View {
             VStack(spacing: 25) {
                 
                 /// Custom OTP TextField
-                
+                OTPVerificationView(otpText: $otpText)
                 
                 
                 /// Signup Button
                 GradientButton(title: "Continue", icon: "arrow.right") {
                     /// Code after link is sent
-                    
+                    dismiss()
                 }
                 .hSpacing(.trailing)
                 /// Disabling until data is entered
-                .disableWithOpacity(otpText.isEmpty)
+                .disableWithOpacity(otpText.count < 6)
                 
             } //: VSTACK
             .padding(.top, 20)
@@ -66,5 +66,5 @@ struct OTPView: View {
 }
 
 #Preview {
-    OTPView(otpText: .constant("1234"))
+    OTPView(otpText: .constant("123456"))
 }

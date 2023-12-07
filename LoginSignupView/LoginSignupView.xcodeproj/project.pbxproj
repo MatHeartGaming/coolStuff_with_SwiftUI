@@ -19,6 +19,7 @@
 		FE837B1B2B21B93300C6DE03 /* ForgotPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE837B1A2B21B93300C6DE03 /* ForgotPassword.swift */; };
 		FE837B1D2B21C0D400C6DE03 /* ResetPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE837B1C2B21C0D400C6DE03 /* ResetPassword.swift */; };
 		FE837B1F2B21C23B00C6DE03 /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE837B1E2B21C23B00C6DE03 /* OTPView.swift */; };
+		FE837B402B21D5CB00C6DE03 /* OTPVerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE837B3F2B21D5CB00C6DE03 /* OTPVerificationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		FE837B1A2B21B93300C6DE03 /* ForgotPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassword.swift; sourceTree = "<group>"; };
 		FE837B1C2B21C0D400C6DE03 /* ResetPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPassword.swift; sourceTree = "<group>"; };
 		FE837B1E2B21C23B00C6DE03 /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
+		FE837B3F2B21D5CB00C6DE03 /* OTPVerificationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTPVerificationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 				FE837B1A2B21B93300C6DE03 /* ForgotPassword.swift */,
 				FE837B1C2B21C0D400C6DE03 /* ResetPassword.swift */,
 				FE837B1E2B21C23B00C6DE03 /* OTPView.swift */,
+				FE837B3F2B21D5CB00C6DE03 /* OTPVerificationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE6C73312B20DB18003047BC /* Signup.swift in Sources */,
+				FE837B402B21D5CB00C6DE03 /* OTPVerificationView.swift in Sources */,
 				FE6C73282B20D25C003047BC /* Login.swift in Sources */,
 				FE6C732F2B20D6D2003047BC /* GradientButton.swift in Sources */,
 				FE837B1D2B21C0D400C6DE03 /* ResetPassword.swift in Sources */,
