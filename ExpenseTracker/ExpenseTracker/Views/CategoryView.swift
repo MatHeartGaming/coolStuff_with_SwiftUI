@@ -18,15 +18,19 @@ struct CategoryView: View {
     @State private var addCategory: Bool = false
     @State private var categoryName: String = ""
     
+    /// Category Delete Request
+    @State private var deleteRequest = false
+    @State private var requestCategory: Category?
+    
     var body: some View {
         NavigationStack {
             List {
                 
-                ForEach(allCategories) { category in
+                ForEach(sortedCategoriesByExpensesCount) { category in
                     DisclosureGroup {
                         if let expenses = category.expanses, !expenses.isEmpty {
                             ForEach(expenses) { expense in
-                                ExpenseCardView(expense: expense)
+                                ExpenseCardView(expense: expense, displayTag: false)
                             }
                         } else {
                             ContentUnavailableView {
@@ -36,6 +40,17 @@ struct CategoryView: View {
                     } label: {
                         Text(category.categoryName)
                     } //: Disclosure Group
+                    .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                        Button {
+                            deleteRequest.toggle()
+                            requestCategory = category
+                        } label: {
+                            Image(systemName: "trash")
+                        } //: BUTTON DELETE
+                        .tint(.red)
+
+                    }
+                    
                 } //: LOOP All Categories
                 
             } //: LIST
@@ -51,7 +66,7 @@ struct CategoryView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(action: {
-                        
+                        addCategory.toggle()
                     }, label: {
                         Image(systemName: "plus.circle.fill")
                             .font(.title3)
@@ -102,7 +117,33 @@ struct CategoryView: View {
                 .interactiveDismissDisabled()
             })
         } //: NAVIGATION
+        .alert("If you delete a category, all the associated expenses will be deleted too.", isPresented: $deleteRequest) {
+            Button(role: .destructive) {
+                /// Deleting Category
+                guard let requestCategory else { return }
+                context.delete(requestCategory)
+                self.requestCategory = nil
+            } label: {
+                Text("Delete")
+            }
+            
+            Button(role: .cancel) {
+                requestCategory = nil
+            } label: {
+                Text("Cancel")
+            }
+
+        } //: ALERT DELETE CATEGORY
     }
+    
+    
+    /// Sorted categories by expenses count
+    var sortedCategoriesByExpensesCount: [Category] {
+        allCategories.sorted(by: {
+            ($0.expanses?.count ?? 0) > ($1.expanses?.count ?? 0)
+        })
+    }
+    
 }
 
 #Preview {

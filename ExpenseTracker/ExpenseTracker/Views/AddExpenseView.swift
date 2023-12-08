@@ -60,21 +60,32 @@ struct AddExpenseView: View {
                         
                         Spacer()
                         
-                        Picker("", selection: $category) {
-                            ForEach(allCategories) {
-                                Text($0.categoryName)
-                                    .tag($0)
+                        Menu {
+                            ForEach(allCategories) { category in
+                                Button(category.categoryName) {
+                                    self.category = category
+                                }
+                            } //: LOOP
+                            
+                            Button("None") {
+                                category = nil
                             }
-                        }
-                        .pickerStyle(.menu)
-                        .labelsHidden()
-                    }
+                        } label: {
+                            if let categoryName = category?.categoryName {
+                                Text(categoryName)
+                            } else {
+                                Text("None")
+                            }
+                        } //: MENU CATEGORIES
+                    } //: HSTACK CATEGORIES
+                    
                 }
                 
                 
                 
             } //: LIST
             .navigationTitle("Add Expense")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button("Cancel") {

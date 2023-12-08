@@ -9,7 +9,9 @@ import SwiftUI
 
 struct ExpenseCardView: View {
     
+    // MARK: - UI
     @Bindable var expense: Expense
+    var displayTag: Bool = true
     
     var body: some View {
         HStack {
@@ -20,6 +22,15 @@ struct ExpenseCardView: View {
                 Text(expense.subtitle)
                     .font(.caption)
                     .foregroundStyle(.gray)
+                
+                if let categoryName = expense.category?.categoryName, displayTag {
+                    Text(categoryName)
+                        .font(.caption2)
+                        .foregroundStyle(.white)
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 4)
+                        .background(.red.gradient, in: .capsule)
+                }
                 
             } //: VSTACK
             .lineLimit(1)
@@ -32,8 +43,4 @@ struct ExpenseCardView: View {
             
         } //: HSTACK
     }
-}
-
-#Preview {
-    ExpenseCardView(expense: .init(title: "Title", subtitle: "Subtitle", amount: 10.0, date: .now))
 }

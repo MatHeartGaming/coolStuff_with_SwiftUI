@@ -11,6 +11,8 @@ import SwiftData
 struct ExpenseView: View {
     
     //MARK: - PROPERTIES
+    @Binding var currentTab: String
+    
     /// - Environment
     @Environment(\.modelContext) private var context
     
@@ -18,7 +20,11 @@ struct ExpenseView: View {
     @Query(sort: [SortDescriptor(\Expense.date, order: .reverse),],
            animation: .snappy) private var allExpenses: [Expense]
     @State private var groupedExpenses = [GroupedExpense]()
+    @State private var originalGroupedExpenses = [GroupedExpense]()
     @State private var addExpense: Bool = false
+    
+    /// Search Text
+    @State private var searchText: String = ""
     
     var body: some View {
         NavigationStack {
@@ -56,6 +62,7 @@ struct ExpenseView: View {
                 
             } //: LIST
             .navigationTitle("Expenses")
+            .searchable(text: $searchText, placement: .navigationBarDrawer, prompt: Text("Search"))
             .overlay {
                 if allExpenses.isEmpty || groupedExpenses.isEmpty {
                     ContentUnavailableView {
@@ -76,8 +83,15 @@ struct ExpenseView: View {
             } //: TOOLBAR
         } //: NAVIGATION
         .onChange(of: allExpenses, initial: true) { oldValue, newValue in
-            if newValue.count > oldValue.count || groupedExpenses.isEmpty {
+            if newValue.count > oldValue.count || groupedExpenses.isEmpty || currentTab == "Categories" {
                 createGroupedExpenses(newValue)
+            }
+        }
+        .onChange(of: searchText, initial: false) { oldValue, newValue in
+            if !newValue.isEmpty {
+                filterExpenses(newValue)
+            } else {
+                self.groupedExpenses = self.originalGroupedExpenses
             }
         }
         .sheet(isPresented: $addExpense, content: {
@@ -87,6 +101,24 @@ struct ExpenseView: View {
     }
     
     //MARK: - FUNCTIONS
+    
+    /// Filtering Fxpenses
+    func filterExpenses(_ text: String) {
+        Task.detached(priority: .high) {
+            let query = text.lowercased()
+            let filteredExpenses = originalGroupedExpenses.compactMap { group -> GroupedExpense? in
+                let expenses = group.expenses.filter({ $0.title.lowercased().contains(query) })
+                if expenses.isEmpty {
+                    return nil
+                }
+                return .init(date: group.date, expenses: expenses)
+            }
+            
+            await MainActor.run {
+                groupedExpenses = filteredExpenses
+            }
+        }
+    }
     
     /// Group Expenses by Date
     func createGroupedExpenses(_ expenses: [Expense]) {
@@ -113,6 +145,7 @@ struct ExpenseView: View {
                     let date = Calendar.current.date(from: dict.key) ?? .init()
                     return .init(date: date, expenses: dict.value)
                 })
+                originalGroupedExpenses = groupedExpenses
             }
             
         } //: TASK
@@ -121,5 +154,5 @@ struct ExpenseView: View {
 }
 
 #Preview {
-    ExpenseView()
+    ExpenseView(currentTab: .constant("Expenses"))
 }
