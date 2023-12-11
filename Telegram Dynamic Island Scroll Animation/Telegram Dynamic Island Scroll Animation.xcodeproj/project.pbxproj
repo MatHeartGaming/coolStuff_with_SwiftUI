@@ -13,6 +13,8 @@
 		FE5352352B271D9500669AFB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE5352342B271D9500669AFB /* Preview Assets.xcassets */; };
 		FE53523D2B272B1E00669AFB /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE53523C2B272B1E00669AFB /* Home.swift */; };
 		FE5352402B272D6200669AFB /* OffsetKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE53523F2B272D6200669AFB /* OffsetKey.swift */; };
+		FE5352422B274B6900669AFB /* AnchorKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5352412B274B6900669AFB /* AnchorKey.swift */; };
+		FE5352442B2761CB00669AFB /* EdgeInsets+DynamicIsland.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5352432B2761CB00669AFB /* EdgeInsets+DynamicIsland.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		FE5352342B271D9500669AFB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FE53523C2B272B1E00669AFB /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		FE53523F2B272D6200669AFB /* OffsetKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetKey.swift; sourceTree = "<group>"; };
+		FE5352412B274B6900669AFB /* AnchorKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchorKey.swift; sourceTree = "<group>"; };
+		FE5352432B2761CB00669AFB /* EdgeInsets+DynamicIsland.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EdgeInsets+DynamicIsland.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,8 @@
 			isa = PBXGroup;
 			children = (
 				FE53523F2B272D6200669AFB /* OffsetKey.swift */,
+				FE5352412B274B6900669AFB /* AnchorKey.swift */,
+				FE5352432B2761CB00669AFB /* EdgeInsets+DynamicIsland.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -160,8 +166,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE5352302B271D9300669AFB /* ContentView.swift in Sources */,
+				FE5352442B2761CB00669AFB /* EdgeInsets+DynamicIsland.swift in Sources */,
 				FE53523D2B272B1E00669AFB /* Home.swift in Sources */,
 				FE5352402B272D6200669AFB /* OffsetKey.swift in Sources */,
+				FE5352422B274B6900669AFB /* AnchorKey.swift in Sources */,
 				FE53522E2B271D9300669AFB /* Telegram_Dynamic_Island_Scroll_AnimationApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
