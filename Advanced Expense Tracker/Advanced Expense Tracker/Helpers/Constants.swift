@@ -9,4 +9,4 @@ import SwiftUI
 
 
 /// Colors
-let appTint: Color = .blue
+let appTint: Color = .red
