@@ -12,6 +12,7 @@
 		FECC528E2B287029005A60D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FECC528D2B287029005A60D1 /* Assets.xcassets */; };
 		FECC52912B287029005A60D1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FECC52902B287029005A60D1 /* Preview Assets.xcassets */; };
 		FECC52992B287060005A60D1 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECC52982B287060005A60D1 /* Home.swift */; };
+		FECC529B2B289870005A60D1 /* SwipeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECC529A2B289870005A60D1 /* SwipeAction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		FECC528D2B287029005A60D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FECC52902B287029005A60D1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FECC52982B287060005A60D1 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		FECC529A2B289870005A60D1 /* SwipeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeAction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				FECC52982B287060005A60D1 /* Home.swift */,
+				FECC529A2B289870005A60D1 /* SwipeAction.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -150,6 +153,7 @@
 			files = (
 				FECC528C2B287028005A60D1 /* ContentView.swift in Sources */,
 				FECC52992B287060005A60D1 /* Home.swift in Sources */,
+				FECC529B2B289870005A60D1 /* SwipeAction.swift in Sources */,
 				FECC528A2B287028005A60D1 /* CustomSwipeActions___No_GesturesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
