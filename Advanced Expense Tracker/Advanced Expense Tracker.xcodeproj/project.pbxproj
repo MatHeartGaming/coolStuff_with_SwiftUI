@@ -26,6 +26,8 @@
 		FECC52782B28657B005A60D1 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECC52772B28657B005A60D1 /* CardView.swift */; };
 		FECC527A2B286BFC005A60D1 /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECC52792B286BFC005A60D1 /* PreviewData.swift */; };
 		FECC527C2B286CC8005A60D1 /* TransactionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECC527B2B286CC8005A60D1 /* TransactionCardView.swift */; };
+		FECC529D2B2898ED005A60D1 /* SwipeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECC529C2B2898ED005A60D1 /* SwipeAction.swift */; };
+		FECC52A02B289A57005A60D1 /* DateFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECC529F2B289A57005A60D1 /* DateFilterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +51,8 @@
 		FECC52772B28657B005A60D1 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		FECC52792B286BFC005A60D1 /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
 		FECC527B2B286CC8005A60D1 /* TransactionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCardView.swift; sourceTree = "<group>"; };
+		FECC529C2B2898ED005A60D1 /* SwipeAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeAction.swift; sourceTree = "<group>"; };
+		FECC529F2B289A57005A60D1 /* DateFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFilterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,7 @@
 		FE5352182B2711CD00669AFB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FECC529E2B289A41005A60D1 /* Helpers */,
 				FECC526A2B2856E1005A60D1 /* TabViews */,
 				FE53521A2B2711EC00669AFB /* IntroScreen.swift */,
 				FECC52772B28657B005A60D1 /* CardView.swift */,
@@ -142,6 +147,15 @@
 				FECC52712B285734005A60D1 /* Settings.swift */,
 			);
 			path = TabViews;
+			sourceTree = "<group>";
+		};
+		FECC529E2B289A41005A60D1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FECC529C2B2898ED005A60D1 /* SwipeAction.swift */,
+				FECC529F2B289A57005A60D1 /* DateFilterView.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,6 +235,7 @@
 				FECC52782B28657B005A60D1 /* CardView.swift in Sources */,
 				FE53521B2B2711EC00669AFB /* IntroScreen.swift in Sources */,
 				FECC527C2B286CC8005A60D1 /* TransactionCardView.swift in Sources */,
+				FECC52A02B289A57005A60D1 /* DateFilterView.swift in Sources */,
 				FE5352202B2714EC00669AFB /* Tab.swift in Sources */,
 				FECC52722B285734005A60D1 /* Settings.swift in Sources */,
 				FECC527A2B286BFC005A60D1 /* PreviewData.swift in Sources */,
@@ -228,6 +243,7 @@
 				FECC526E2B285712005A60D1 /* Search.swift in Sources */,
 				FECC52762B28635D005A60D1 /* Date+Extensions.swift in Sources */,
 				FECC52742B2858D0005A60D1 /* View+Extensions.swift in Sources */,
+				FECC529D2B2898ED005A60D1 /* SwipeAction.swift in Sources */,
 				FE53521E2B2712D000669AFB /* Constants.swift in Sources */,
 				FECC52702B285722005A60D1 /* Graphs.swift in Sources */,
 				FECC52652B2853EC005A60D1 /* Category.swift in Sources */,

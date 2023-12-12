@@ -19,6 +19,7 @@ struct Recents: View {
     @State private var startDate: Date = .now.startOfMonth
     @State private var endDate: Date = .now.endOfMonth
     @State private var selectedCategory: Category = .expense
+    @State private var showFilterView = false
     
     /// Animations
     @Namespace private var animation
@@ -35,11 +36,20 @@ struct Recents: View {
                         
                         Section {
                             /// Date Filter Button
-                            Button(action: {}, label: {
-                                Text("\(format(date: startDate, format: "dd/MMM/yyyy")) to \(format(date: endDate, format: "dd/MMM/yyyy"))")
-                                    .font(.caption2)
-                                    .foregroundStyle(.gray)
-                            })
+                            Button(action: {
+                                showFilterView = true
+                            }, label: {
+                                HStack(spacing: 4) {
+                                    Text("\(format(date: startDate, format: "dd/MMM/yyyy")) to \(format(date: endDate, format: "dd/MMM/yyyy"))")
+                                        .font(.caption)
+                                        .foregroundStyle(.gray)
+                                    
+                                    Image(systemName: "line.3.horizontal.decrease.circle")
+                                        .font(.callout)
+                                        .fontWeight(.semibold)
+                                        .foregroundStyle(.gray)
+                                }
+                            }) // FILTER BUTTON
                             .hSpacing(.leading)
                             
                             /// Card View
@@ -64,9 +74,25 @@ struct Recents: View {
                     
                 } //: SCROLLVIEW
                 .background(.gray.opacity(0.15))
+                .blur(radius: showFilterView ? 8 : 0)
+                .disabled(showFilterView)
                 
             } //: NAVIGATION
+            .overlay {
+                if showFilterView {
+                    DateFilterView(start: startDate, end: endDate, onSubmit: { start, end in
+                        startDate = start
+                        endDate = end
+                        showFilterView = false
+                    }, onClose: {
+                        showFilterView = false
+                    })
+                    .transition(.move(edge: .leading))
+                }
+            } //: Overlay Filter View
+            .animation(.snappy, value: showFilterView)
         } //: GEOMETRY
+        
     }
     
     //MARK: - OTHER VIEWS
