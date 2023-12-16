@@ -280,7 +280,7 @@ struct LockView<Content: View>: View {
 }
 
 #Preview {
-    LockView(lockType: .number, lockPin: "1234", isEnabled: true, content: {
+    LockView(lockType: .biometric, lockPin: "1234", isEnabled: true, content: {
         Text("Hellooo!!")
     })
 }

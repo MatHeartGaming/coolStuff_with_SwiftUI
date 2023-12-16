@@ -6,10 +6,10 @@
 //
 
 import SwiftUI
+import SwiftData
 
-struct Transaction: Identifiable {
-    
-    let id: UUID = .init()
+@Model
+class Transaction {
     
     var title: String
     var remarks: String
@@ -28,8 +28,15 @@ struct Transaction: Identifiable {
     }
     
     /// Extracting Color value from tintColor String
-    var color: Color {
+    @Transient var color: Color {
         return tints.first(where: { $0.color == self.tintColor })?.value ?? appTint
     }
     
+    @Transient var tint: TintColor? {
+        return tints.first(where: { $0.color == tintColor })
+    }
+    
+    @Transient var rawCategory: Category? {
+        return Category.allCases.first(where: { category == $0.rawValue })
+    }
 }

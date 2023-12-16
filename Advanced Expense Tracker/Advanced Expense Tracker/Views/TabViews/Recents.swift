@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct Recents: View {
     
     //MARK: - PROPERTIES
-    var transactions: [Transaction] = sampleTransactions
+    //var transactions: [Transaction] = sampleTransactions
     
     /// User
     @AppStorage("userName") private var userName = ""
@@ -23,6 +24,10 @@ struct Recents: View {
     
     /// Animations
     @Namespace private var animation
+    
+    /// Swift Data Transacrions
+    @Query(sort: [SortDescriptor(\Transaction.dateAdded, order: .reverse)], animation: .snappy) private var transactions: [Transaction]
+    
     
     var body: some View {
         GeometryReader {
@@ -60,7 +65,13 @@ struct Recents: View {
                                 .padding(.bottom, 10)
                             
                             ForEach(transactionsBySelectedCategory) { transaction in
-                                TransactionCardView(transaction: transaction)
+                                NavigationLink {
+                                    NewExpenseView(editTransaction: transaction)
+                                } label: {
+                                    TransactionCardView(transaction: transaction)
+                                }
+
+                                
                             }
                             
                         } header: {
@@ -120,7 +131,7 @@ struct Recents: View {
             Spacer(minLength: .zero)
             
             NavigationLink {
-                
+                NewExpenseView()
             } label: {
                 Image(systemName: "plus")
                     .font(.title3)
@@ -193,11 +204,12 @@ struct Recents: View {
     }
     
     var transactionsBySelectedCategory: [Transaction] {
-        sampleTransactions.filter( { $0.category == selectedCategory.rawValue } )
+        transactions.filter( { $0.category == selectedCategory.rawValue } )
     }
     
 }
 
 #Preview {
-    Recents(transactions: sampleTransactions)
+    //Recents(transactions: sampleTransactions)
+    Recents()
 }
