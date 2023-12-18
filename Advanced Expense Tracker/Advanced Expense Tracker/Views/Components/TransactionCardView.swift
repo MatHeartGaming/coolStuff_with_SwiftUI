@@ -13,6 +13,7 @@ struct TransactionCardView: View {
     @Environment(\.modelContext) private var context
     
     var transaction: Transaction
+    var showsCategory: Bool = false
     
     var body: some View {
         SwipeAction(cornerRadius: 10, direction: .trailing) {
@@ -35,6 +36,16 @@ struct TransactionCardView: View {
                     Text(format(date: transaction.dateAdded, format: "dd/MM/yyyy"))
                         .font(.caption2)
                         .foregroundStyle(.gray)
+                    
+                    if showsCategory {
+                        Text(transaction.category)
+                            .font(.caption2)
+                            .padding(.horizontal, 5)
+                            .padding(.vertical, 2)
+                            .background(transaction.category == Category.income.rawValue ? Color.green.gradient : Color.red.gradient, in: .capsule)
+                    }
+                    
+                    
                 } //: VSTACK
                 .lineLimit(1)
                 .hSpacing(.leading)

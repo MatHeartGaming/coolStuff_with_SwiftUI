@@ -14,8 +14,10 @@
 		FE53521B2B2711EC00669AFB /* IntroScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE53521A2B2711EC00669AFB /* IntroScreen.swift */; };
 		FE53521E2B2712D000669AFB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE53521D2B2712D000669AFB /* Constants.swift */; };
 		FE5352202B2714EC00669AFB /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE53521F2B2714EC00669AFB /* Tab.swift */; };
+		FEA1A25F2B30A28300EE7AA5 /* FilterTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA1A25E2B30A28300EE7AA5 /* FilterTransactionView.swift */; };
+		FEA1A2612B30A5F700EE7AA5 /* Transactions+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA1A2602B30A5F700EE7AA5 /* Transactions+Extensions.swift */; };
 		FEAAC46B2B2DB9FA0030A515 /* LockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAAC46A2B2DB9FA0030A515 /* LockView.swift */; };
-		FEAAC4702B2DC1A90030A515 /* NewExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAAC46F2B2DC1A90030A515 /* NewExpenseView.swift */; };
+		FEAAC4702B2DC1A90030A515 /* TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAAC46F2B2DC1A90030A515 /* TransactionView.swift */; };
 		FECC52652B2853EC005A60D1 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECC52642B2853EC005A60D1 /* Category.swift */; };
 		FECC52672B285423005A60D1 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECC52662B285423005A60D1 /* Transaction.swift */; };
 		FECC52692B2854E7005A60D1 /* TintColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FECC52682B2854E7005A60D1 /* TintColor.swift */; };
@@ -41,9 +43,11 @@
 		FE53521A2B2711EC00669AFB /* IntroScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroScreen.swift; sourceTree = "<group>"; };
 		FE53521D2B2712D000669AFB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FE53521F2B2714EC00669AFB /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
+		FEA1A25E2B30A28300EE7AA5 /* FilterTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTransactionView.swift; sourceTree = "<group>"; };
+		FEA1A2602B30A5F700EE7AA5 /* Transactions+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transactions+Extensions.swift"; sourceTree = "<group>"; };
 		FEAAC46A2B2DB9FA0030A515 /* LockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LockView.swift; sourceTree = "<group>"; };
 		FEAAC46C2B2DBBD60030A515 /* Advanced-Expense-Tracker-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Advanced-Expense-Tracker-Info.plist"; sourceTree = SOURCE_ROOT; };
-		FEAAC46F2B2DC1A90030A515 /* NewExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewExpenseView.swift; sourceTree = "<group>"; };
+		FEAAC46F2B2DC1A90030A515 /* TransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionView.swift; sourceTree = "<group>"; };
 		FECC52642B2853EC005A60D1 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		FECC52662B285423005A60D1 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		FECC52682B2854E7005A60D1 /* TintColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TintColor.swift; sourceTree = "<group>"; };
@@ -117,7 +121,7 @@
 				FEAAC46D2B2DC1320030A515 /* Launch */,
 				FECC529E2B289A41005A60D1 /* Helpers */,
 				FECC526A2B2856E1005A60D1 /* TabViews */,
-				FEAAC46F2B2DC1A90030A515 /* NewExpenseView.swift */,
+				FEAAC46F2B2DC1A90030A515 /* TransactionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -139,6 +143,8 @@
 				FE53521D2B2712D000669AFB /* Constants.swift */,
 				FECC52732B2858D0005A60D1 /* View+Extensions.swift */,
 				FECC52752B28635D005A60D1 /* Date+Extensions.swift */,
+				FEA1A25E2B30A28300EE7AA5 /* FilterTransactionView.swift */,
+				FEA1A2602B30A5F700EE7AA5 /* Transactions+Extensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -254,9 +260,11 @@
 			files = (
 				FECC52692B2854E7005A60D1 /* TintColor.swift in Sources */,
 				FECC526C2B285707005A60D1 /* Recents.swift in Sources */,
-				FEAAC4702B2DC1A90030A515 /* NewExpenseView.swift in Sources */,
+				FEAAC4702B2DC1A90030A515 /* TransactionView.swift in Sources */,
 				FECC52672B285423005A60D1 /* Transaction.swift in Sources */,
 				FE53520D2B2711B900669AFB /* ContentView.swift in Sources */,
+				FEA1A2612B30A5F700EE7AA5 /* Transactions+Extensions.swift in Sources */,
+				FEA1A25F2B30A28300EE7AA5 /* FilterTransactionView.swift in Sources */,
 				FECC52782B28657B005A60D1 /* CardView.swift in Sources */,
 				FE53521B2B2711EC00669AFB /* IntroScreen.swift in Sources */,
 				FECC527C2B286CC8005A60D1 /* TransactionCardView.swift in Sources */,

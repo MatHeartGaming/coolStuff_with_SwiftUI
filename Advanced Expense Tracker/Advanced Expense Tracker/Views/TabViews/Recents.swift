@@ -57,21 +57,19 @@ struct Recents: View {
                             }) // FILTER BUTTON
                             .hSpacing(.leading)
                             
-                            /// Card View
-                            CardView(income: 2000, expense: 1200)
-                            
-                            /// Custom Segmented Control
-                            CustomSegmentedControl()
-                                .padding(.bottom, 10)
-                            
-                            ForEach(transactionsBySelectedCategory) { transaction in
-                                NavigationLink {
-                                    NewExpenseView(editTransaction: transaction)
-                                } label: {
-                                    TransactionCardView(transaction: transaction)
-                                }
-
+                            FilterTransactionView(startDate: startDate, endDate: endDate) { transactions in
+                                /// Card View
+                                CardView(income: sumOfIncomes, expense: sumOfExpenses)
                                 
+                                /// Custom Segmented Control
+                                CustomSegmentedControl()
+                                    .padding(.bottom, 10)
+                                
+                                ForEach(transactions.filterBy(category: selectedCategory)) { transaction in
+                                    NavigationLink(value: transaction) {
+                                        TransactionCardView(transaction: transaction)
+                                    }
+                                }
                             }
                             
                         } header: {
@@ -87,6 +85,9 @@ struct Recents: View {
                 .background(.gray.opacity(0.15))
                 .blur(radius: showFilterView ? 8 : 0)
                 .disabled(showFilterView)
+                .navigationDestination(for: Transaction.self) { transaction in
+                    TransactionView(editTransaction: transaction)
+                }
                 
             } //: NAVIGATION
             .overlay {
@@ -131,7 +132,7 @@ struct Recents: View {
             Spacer(minLength: .zero)
             
             NavigationLink {
-                NewExpenseView()
+                TransactionView()
             } label: {
                 Image(systemName: "plus")
                     .font(.title3)
@@ -190,7 +191,7 @@ struct Recents: View {
     
     
     //MARK: - FUNCTIONS
-    func headerScale(_ size: CGSize, proxy: GeometryProxy) -> CGFloat {
+    private func headerScale(_ size: CGSize, proxy: GeometryProxy) -> CGFloat {
         let minY = proxy.frame(in: .scrollView).minY
         let screenHeight = size.height
         let progress = minY / screenHeight
@@ -198,13 +199,25 @@ struct Recents: View {
         return 1 + scale
     }
     
-    func headerBGOpacity(_ proxy: GeometryProxy) -> CGFloat {
+    private func headerBGOpacity(_ proxy: GeometryProxy) -> CGFloat {
         let minY = proxy.frame(in: .scrollView).minY +  safeArea.top
         return minY > 0 ? .zero : (-minY / 15)
     }
     
-    var transactionsBySelectedCategory: [Transaction] {
+    private var transactionsBySelectedCategory: [Transaction] {
         transactions.filter( { $0.category == selectedCategory.rawValue } )
+    }
+    
+    private var sumOfIncomes: Double {
+        transactions.filter { transaction in
+            transaction.category == Category.income.rawValue
+        }.sum()
+    }
+    
+    private var sumOfExpenses: Double {
+        transactions.filter { transaction in
+            transaction.category == Category.expense.rawValue
+        }.sum()
     }
     
 }

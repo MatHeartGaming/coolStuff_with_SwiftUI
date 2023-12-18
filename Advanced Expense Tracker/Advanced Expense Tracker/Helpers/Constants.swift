@@ -6,7 +6,12 @@
 //
 
 import SwiftUI
+import SwiftData
 
 
 /// Colors
 let appTint: Color = .red
+
+
+/// Predicates
+
