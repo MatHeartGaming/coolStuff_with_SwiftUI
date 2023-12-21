@@ -37,7 +37,7 @@ struct FilterTransactionView<Content: View>: View {
     }
     
     /// Optional for your cusomized use
-    init(startDate: Date, endDate: Date, category: Category?, searchText: String, @ViewBuilder content: @escaping ([Transaction]) -> Content) {
+    init(startDate: Date, endDate: Date, category: Category?, searchText: String? = nil, @ViewBuilder content: @escaping ([Transaction]) -> Content) {
         /// Custom Predicate
         let rawValue = category?.rawValue ?? ""
         let predicate = #Predicate<Transaction> { transaction in

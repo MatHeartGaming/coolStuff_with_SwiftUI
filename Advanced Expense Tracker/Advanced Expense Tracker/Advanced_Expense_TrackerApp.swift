@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 @main
 struct Advanced_Expense_TrackerApp: App {
@@ -18,6 +19,9 @@ struct Advanced_Expense_TrackerApp: App {
             ContentView()
                 .preferredColorScheme(isDarkMode ? .dark : .light)
                 .animation(.easeIn, value: isDarkMode)
+                .onAppear {
+                    WidgetCenter.shared.reloadAllTimelines()
+                }
         }
         .modelContainer(for: [Transaction.self])
     }

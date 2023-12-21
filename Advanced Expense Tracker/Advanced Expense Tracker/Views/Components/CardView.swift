@@ -26,6 +26,7 @@ struct CardView: View {
                     
                     Text("\(currencyString(income - expense))")
                         .font(.title.bold())
+                        .foregroundStyle(Color.primary)
                     
                     Image(systemName: bankRupt ? "chart.line.downtrend.xyaxis" : "chart.line.uptrend.xyaxis")
                         .font(.title3)
@@ -59,7 +60,7 @@ struct CardView: View {
                                 Text(currencyString(isIncomeCategory ? income : expense, allowDigits: 0))
                                     .font(.callout)
                                     .fontWeight(.semibold)
-                                    .foregroundStyle(.primary)
+                                    .foregroundStyle(Color.primary)
                                 
                             } //: VSTACK
                             

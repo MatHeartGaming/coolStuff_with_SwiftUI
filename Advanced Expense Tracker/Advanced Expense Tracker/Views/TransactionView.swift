@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 struct TransactionView: View {
     
@@ -23,7 +24,7 @@ struct TransactionView: View {
     @State private var category: Category = .expense
     
     /// Random tint
-    @State var tint: TintColor = tints.randomElement()!
+    @State private var tint: TintColor = tints.randomElement()!
     
     var body: some View {
         ScrollView(.vertical) {
@@ -144,6 +145,9 @@ struct TransactionView: View {
         
         /// Dismissing View
         dismiss()
+        
+        /// Reload widget
+        WidgetCenter.shared.reloadAllTimelines()
     }
     
     
@@ -225,5 +229,6 @@ struct TransactionView: View {
 #Preview {
     NavigationStack {
         TransactionView()
+            .modelContainer(for: [Transaction.self])
     }
 }
