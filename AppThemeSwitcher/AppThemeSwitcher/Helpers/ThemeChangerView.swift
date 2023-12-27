@@ -72,7 +72,6 @@ struct ThemeChangerView: View {
                             
                         }
                         .contentShape(.rect)
-                    //.frame(width: 100)
                         .onTapGesture {
                             userTheme = theme
                         }
