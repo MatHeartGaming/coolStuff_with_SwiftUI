@@ -15,6 +15,9 @@
 		FEB98D1C2B46A87700E6DE80 /* video1.mov in Resources */ = {isa = PBXBuildFile; fileRef = FEB98D1B2B46A87700E6DE80 /* video1.mov */; };
 		FEB98D1F2B46A9B500E6DE80 /* CustomVideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB98D1E2B46A9B500E6DE80 /* CustomVideoPlayer.swift */; };
 		FEB98D212B46B96900E6DE80 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB98D202B46B96900E6DE80 /* ViewModifiers.swift */; };
+		FEB98D232B46FC9800E6DE80 /* DoubleTapSeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB98D222B46FC9800E6DE80 /* DoubleTapSeek.swift */; };
+		FEB98D262B46FEB600E6DE80 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB98D252B46FEB600E6DE80 /* Constants.swift */; };
+		FEB98D282B470EFB00E6DE80 /* CMTIme+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB98D272B470EFB00E6DE80 /* CMTIme+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +30,9 @@
 		FEB98D1B2B46A87700E6DE80 /* video1.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = video1.mov; sourceTree = "<group>"; };
 		FEB98D1E2B46A9B500E6DE80 /* CustomVideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomVideoPlayer.swift; sourceTree = "<group>"; };
 		FEB98D202B46B96900E6DE80 /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
+		FEB98D222B46FC9800E6DE80 /* DoubleTapSeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleTapSeek.swift; sourceTree = "<group>"; };
+		FEB98D252B46FEB600E6DE80 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FEB98D272B470EFB00E6DE80 /* CMTIme+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMTIme+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +65,7 @@
 		FEB98D082B46A53500E6DE80 /* YouTube Video Player */ = {
 			isa = PBXGroup;
 			children = (
+				FEB98D242B46FEAC00E6DE80 /* Constants */,
 				FEB98D1D2B46A87B00E6DE80 /* Resources */,
 				FEB98D182B46A7BE00E6DE80 /* Helpers */,
 				FEB98D172B46A7AC00E6DE80 /* Views */,
@@ -83,6 +90,7 @@
 			children = (
 				FEB98D192B46A7D200E6DE80 /* Home.swift */,
 				FEB98D1E2B46A9B500E6DE80 /* CustomVideoPlayer.swift */,
+				FEB98D222B46FC9800E6DE80 /* DoubleTapSeek.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -91,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				FEB98D202B46B96900E6DE80 /* ViewModifiers.swift */,
+				FEB98D272B470EFB00E6DE80 /* CMTIme+Extensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -101,6 +110,14 @@
 				FEB98D1B2B46A87700E6DE80 /* video1.mov */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		FEB98D242B46FEAC00E6DE80 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				FEB98D252B46FEB600E6DE80 /* Constants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,7 +193,10 @@
 			files = (
 				FEB98D212B46B96900E6DE80 /* ViewModifiers.swift in Sources */,
 				FEB98D0C2B46A53500E6DE80 /* ContentView.swift in Sources */,
+				FEB98D232B46FC9800E6DE80 /* DoubleTapSeek.swift in Sources */,
 				FEB98D1F2B46A9B500E6DE80 /* CustomVideoPlayer.swift in Sources */,
+				FEB98D282B470EFB00E6DE80 /* CMTIme+Extensions.swift in Sources */,
+				FEB98D262B46FEB600E6DE80 /* Constants.swift in Sources */,
 				FEB98D1A2B46A7D200E6DE80 /* Home.swift in Sources */,
 				FEB98D0A2B46A53500E6DE80 /* YouTube_Video_PlayerApp.swift in Sources */,
 			);
