@@ -125,7 +125,7 @@ fileprivate struct ScrollViewHelper: UIViewRepresentable {
     
 }
 
-#Preview(traits: .sizeThatFitsLayout) {
+#Preview {
     LoopingScrollView(width: 200, spacing: 10, items: previewItems) { elem in
         RoundedRectangle(cornerRadius: 15)
             .fill(elem.color.gradient)
