@@ -18,7 +18,7 @@ struct Home: View {
     
     var body: some View {
         VStack {
-            IsometricView(depth: animate ? 15 : 0) {
+            IsometricView(depth: animate ? 25 : 0) {
                 ImageView()
             } bottom: {
                 ImageView()
