@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "a9fb36be-f130-4f84-ab3b-363116c9c5df-Zhangjiajie_China.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -1,0 +1,393 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FE71C7272B51485400B4D94F /* Complex_Hero_Animation_with_Synch_ScrollViewsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE71C7262B51485400B4D94F /* Complex_Hero_Animation_with_Synch_ScrollViewsApp.swift */; };
+		FE71C7292B51485400B4D94F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE71C7282B51485400B4D94F /* ContentView.swift */; };
+		FE71C72B2B51485500B4D94F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE71C72A2B51485500B4D94F /* Assets.xcassets */; };
+		FE71C72E2B51485500B4D94F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE71C72D2B51485500B4D94F /* Preview Assets.xcassets */; };
+		FE71C7362B51498F00B4D94F /* PicItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE71C7352B51498F00B4D94F /* PicItem.swift */; };
+		FE71C7392B5149C200B4D94F /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE71C7382B5149C200B4D94F /* Home.swift */; };
+		FE71C73B2B51514800B4D94F /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE71C73A2B51514800B4D94F /* DetailView.swift */; };
+		FE71C73D2B5156B000B4D94F /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE71C73C2B5156B000B4D94F /* Post.swift */; };
+		FE71C7402B515BB900B4D94F /* OffsetKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE71C73F2B515BB900B4D94F /* OffsetKey.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		FE71C7232B51485400B4D94F /* Complex Hero Animation with Synch ScrollViews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Complex Hero Animation with Synch ScrollViews.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE71C7262B51485400B4D94F /* Complex_Hero_Animation_with_Synch_ScrollViewsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Complex_Hero_Animation_with_Synch_ScrollViewsApp.swift; sourceTree = "<group>"; };
+		FE71C7282B51485400B4D94F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FE71C72A2B51485500B4D94F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FE71C72D2B51485500B4D94F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FE71C7352B51498F00B4D94F /* PicItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicItem.swift; sourceTree = "<group>"; };
+		FE71C7382B5149C200B4D94F /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		FE71C73A2B51514800B4D94F /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		FE71C73C2B5156B000B4D94F /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		FE71C73F2B515BB900B4D94F /* OffsetKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetKey.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FE71C7202B51485400B4D94F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FE71C71A2B51485400B4D94F = {
+			isa = PBXGroup;
+			children = (
+				FE71C7252B51485400B4D94F /* Complex Hero Animation with Synch ScrollViews */,
+				FE71C7242B51485400B4D94F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FE71C7242B51485400B4D94F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FE71C7232B51485400B4D94F /* Complex Hero Animation with Synch ScrollViews.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FE71C7252B51485400B4D94F /* Complex Hero Animation with Synch ScrollViews */ = {
+			isa = PBXGroup;
+			children = (
+				FE71C73E2B515BAE00B4D94F /* Helpers */,
+				FE71C7372B5149B300B4D94F /* View */,
+				FE71C7342B51498000B4D94F /* Model */,
+				FE71C7262B51485400B4D94F /* Complex_Hero_Animation_with_Synch_ScrollViewsApp.swift */,
+				FE71C7282B51485400B4D94F /* ContentView.swift */,
+				FE71C72A2B51485500B4D94F /* Assets.xcassets */,
+				FE71C72C2B51485500B4D94F /* Preview Content */,
+			);
+			path = "Complex Hero Animation with Synch ScrollViews";
+			sourceTree = "<group>";
+		};
+		FE71C72C2B51485500B4D94F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				FE71C72D2B51485500B4D94F /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FE71C7342B51498000B4D94F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FE71C7352B51498F00B4D94F /* PicItem.swift */,
+				FE71C73C2B5156B000B4D94F /* Post.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FE71C7372B5149B300B4D94F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FE71C7382B5149C200B4D94F /* Home.swift */,
+				FE71C73A2B51514800B4D94F /* DetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FE71C73E2B515BAE00B4D94F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FE71C73F2B515BB900B4D94F /* OffsetKey.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FE71C7222B51485400B4D94F /* Complex Hero Animation with Synch ScrollViews */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FE71C7312B51485500B4D94F /* Build configuration list for PBXNativeTarget "Complex Hero Animation with Synch ScrollViews" */;
+			buildPhases = (
+				FE71C71F2B51485400B4D94F /* Sources */,
+				FE71C7202B51485400B4D94F /* Frameworks */,
+				FE71C7212B51485400B4D94F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Complex Hero Animation with Synch ScrollViews";
+			productName = "Complex Hero Animation with Synch ScrollViews";
+			productReference = FE71C7232B51485400B4D94F /* Complex Hero Animation with Synch ScrollViews.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FE71C71B2B51485400B4D94F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					FE71C7222B51485400B4D94F = {
+						CreatedOnToolsVersion = 15.2;
+					};
+				};
+			};
+			buildConfigurationList = FE71C71E2B51485400B4D94F /* Build configuration list for PBXProject "Complex Hero Animation with Synch ScrollViews" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FE71C71A2B51485400B4D94F;
+			productRefGroup = FE71C7242B51485400B4D94F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FE71C7222B51485400B4D94F /* Complex Hero Animation with Synch ScrollViews */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FE71C7212B51485400B4D94F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE71C72E2B51485500B4D94F /* Preview Assets.xcassets in Resources */,
+				FE71C72B2B51485500B4D94F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FE71C71F2B51485400B4D94F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE71C7292B51485400B4D94F /* ContentView.swift in Sources */,
+				FE71C7272B51485400B4D94F /* Complex_Hero_Animation_with_Synch_ScrollViewsApp.swift in Sources */,
+				FE71C7392B5149C200B4D94F /* Home.swift in Sources */,
+				FE71C7402B515BB900B4D94F /* OffsetKey.swift in Sources */,
+				FE71C73D2B5156B000B4D94F /* Post.swift in Sources */,
+				FE71C73B2B51514800B4D94F /* DetailView.swift in Sources */,
+				FE71C7362B51498F00B4D94F /* PicItem.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		FE71C72F2B51485500B4D94F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FE71C7302B51485500B4D94F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FE71C7322B51485500B4D94F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Complex Hero Animation with Synch ScrollViews/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "it.matbuompy.Complex-Hero-Animation-with-Synch-ScrollViews";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FE71C7332B51485500B4D94F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Complex Hero Animation with Synch ScrollViews/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "it.matbuompy.Complex-Hero-Animation-with-Synch-ScrollViews";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FE71C71E2B51485400B4D94F /* Build configuration list for PBXProject "Complex Hero Animation with Synch ScrollViews" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE71C72F2B51485500B4D94F /* Debug */,
+				FE71C7302B51485500B4D94F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FE71C7312B51485500B4D94F /* Build configuration list for PBXNativeTarget "Complex Hero Animation with Synch ScrollViews" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE71C7322B51485500B4D94F /* Debug */,
+				FE71C7332B51485500B4D94F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FE71C71B2B51485400B4D94F /* Project object */;
+}
