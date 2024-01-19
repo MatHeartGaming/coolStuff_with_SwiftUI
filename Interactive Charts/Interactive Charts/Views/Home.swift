@@ -95,7 +95,7 @@ struct Home: View {
                 }
             } //: CHART
             /// This allows us to capture chart selection and give chart ranges (iOS 17+ only)
-            .chartXSelection(value: $barSelection)
+            .chartXSelection(value: $barSelection) // <-- Add this modifier too
             .chartAngleSelection(value: $pieSelection)
             .chartLegend(position: .bottom, alignment: graphType == .bar ? .leading : .center, spacing: 25)
             .frame(height: 300)
