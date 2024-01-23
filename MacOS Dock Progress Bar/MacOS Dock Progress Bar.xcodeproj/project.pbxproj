@@ -7,26 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FE425FE22B06764C00BCE00A /* Interactive_Pop_GestureApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE425FE12B06764C00BCE00A /* Interactive_Pop_GestureApp.swift */; };
-		FE425FE42B06764C00BCE00A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE425FE32B06764C00BCE00A /* ContentView.swift */; };
-		FE425FE62B06764D00BCE00A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE425FE52B06764D00BCE00A /* Assets.xcassets */; };
-		FE425FE92B06764D00BCE00A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE425FE82B06764D00BCE00A /* Preview Assets.xcassets */; };
-		FE425FF12B06772E00BCE00A /* FullSwipeNavigationStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE425FF02B06772E00BCE00A /* FullSwipeNavigationStack.swift */; };
-		FE425FF42B06783100BCE00A /* UIViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE425FF32B06783100BCE00A /* UIViewHelpers.swift */; };
+		FE4C5CF92B6016BB00AD3DE9 /* MacOS_Dock_Progress_BarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4C5CF82B6016BB00AD3DE9 /* MacOS_Dock_Progress_BarApp.swift */; };
+		FE4C5CFB2B6016BB00AD3DE9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4C5CFA2B6016BB00AD3DE9 /* ContentView.swift */; };
+		FE4C5CFD2B6016BD00AD3DE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE4C5CFC2B6016BD00AD3DE9 /* Assets.xcassets */; };
+		FE4C5D002B6016BD00AD3DE9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE4C5CFF2B6016BD00AD3DE9 /* Preview Assets.xcassets */; };
+		FE4C5D082B6016E100AD3DE9 /* DockProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4C5D072B6016E100AD3DE9 /* DockProgress.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FE425FDE2B06764C00BCE00A /* Interactive Pop Gesture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Interactive Pop Gesture.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FE425FE12B06764C00BCE00A /* Interactive_Pop_GestureApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactive_Pop_GestureApp.swift; sourceTree = "<group>"; };
-		FE425FE32B06764C00BCE00A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		FE425FE52B06764D00BCE00A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FE425FE82B06764D00BCE00A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		FE425FF02B06772E00BCE00A /* FullSwipeNavigationStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullSwipeNavigationStack.swift; sourceTree = "<group>"; };
-		FE425FF32B06783100BCE00A /* UIViewHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewHelpers.swift; sourceTree = "<group>"; };
+		FE4C5CF52B6016BB00AD3DE9 /* MacOS Dock Progress Bar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MacOS Dock Progress Bar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE4C5CF82B6016BB00AD3DE9 /* MacOS_Dock_Progress_BarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacOS_Dock_Progress_BarApp.swift; sourceTree = "<group>"; };
+		FE4C5CFA2B6016BB00AD3DE9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FE4C5CFC2B6016BD00AD3DE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FE4C5CFF2B6016BD00AD3DE9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FE4C5D072B6016E100AD3DE9 /* DockProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DockProgress.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		FE425FDB2B06764C00BCE00A /* Frameworks */ = {
+		FE4C5CF22B6016BB00AD3DE9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -36,55 +34,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		FE425FD52B06764C00BCE00A = {
+		FE4C5CEC2B6016BB00AD3DE9 = {
 			isa = PBXGroup;
 			children = (
-				FE425FE02B06764C00BCE00A /* Interactive Pop Gesture */,
-				FE425FDF2B06764C00BCE00A /* Products */,
+				FE4C5CF72B6016BB00AD3DE9 /* MacOS Dock Progress Bar */,
+				FE4C5CF62B6016BB00AD3DE9 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		FE425FDF2B06764C00BCE00A /* Products */ = {
+		FE4C5CF62B6016BB00AD3DE9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FE425FDE2B06764C00BCE00A /* Interactive Pop Gesture.app */,
+				FE4C5CF52B6016BB00AD3DE9 /* MacOS Dock Progress Bar.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FE425FE02B06764C00BCE00A /* Interactive Pop Gesture */ = {
+		FE4C5CF72B6016BB00AD3DE9 /* MacOS Dock Progress Bar */ = {
 			isa = PBXGroup;
 			children = (
-				FE425FF22B06781D00BCE00A /* Helpers */,
-				FE425FEF2B06771100BCE00A /* Extensions */,
-				FE425FE12B06764C00BCE00A /* Interactive_Pop_GestureApp.swift */,
-				FE425FE32B06764C00BCE00A /* ContentView.swift */,
-				FE425FE52B06764D00BCE00A /* Assets.xcassets */,
-				FE425FE72B06764D00BCE00A /* Preview Content */,
+				FE4C5D062B6016D200AD3DE9 /* Helpers */,
+				FE4C5CF82B6016BB00AD3DE9 /* MacOS_Dock_Progress_BarApp.swift */,
+				FE4C5CFA2B6016BB00AD3DE9 /* ContentView.swift */,
+				FE4C5CFC2B6016BD00AD3DE9 /* Assets.xcassets */,
+				FE4C5CFE2B6016BD00AD3DE9 /* Preview Content */,
 			);
-			path = "Interactive Pop Gesture";
+			path = "MacOS Dock Progress Bar";
 			sourceTree = "<group>";
 		};
-		FE425FE72B06764D00BCE00A /* Preview Content */ = {
+		FE4C5CFE2B6016BD00AD3DE9 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				FE425FE82B06764D00BCE00A /* Preview Assets.xcassets */,
+				FE4C5CFF2B6016BD00AD3DE9 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		FE425FEF2B06771100BCE00A /* Extensions */ = {
+		FE4C5D062B6016D200AD3DE9 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				FE425FF02B06772E00BCE00A /* FullSwipeNavigationStack.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		FE425FF22B06781D00BCE00A /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				FE425FF32B06783100BCE00A /* UIViewHelpers.swift */,
+				FE4C5D072B6016E100AD3DE9 /* DockProgress.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -92,39 +81,39 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FE425FDD2B06764C00BCE00A /* Interactive Pop Gesture */ = {
+		FE4C5CF42B6016BB00AD3DE9 /* MacOS Dock Progress Bar */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FE425FEC2B06764D00BCE00A /* Build configuration list for PBXNativeTarget "Interactive Pop Gesture" */;
+			buildConfigurationList = FE4C5D032B6016BD00AD3DE9 /* Build configuration list for PBXNativeTarget "MacOS Dock Progress Bar" */;
 			buildPhases = (
-				FE425FDA2B06764C00BCE00A /* Sources */,
-				FE425FDB2B06764C00BCE00A /* Frameworks */,
-				FE425FDC2B06764C00BCE00A /* Resources */,
+				FE4C5CF12B6016BB00AD3DE9 /* Sources */,
+				FE4C5CF22B6016BB00AD3DE9 /* Frameworks */,
+				FE4C5CF32B6016BB00AD3DE9 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Interactive Pop Gesture";
-			productName = "Interactive Pop Gesture";
-			productReference = FE425FDE2B06764C00BCE00A /* Interactive Pop Gesture.app */;
+			name = "MacOS Dock Progress Bar";
+			productName = "MacOS Dock Progress Bar";
+			productReference = FE4C5CF52B6016BB00AD3DE9 /* MacOS Dock Progress Bar.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		FE425FD62B06764C00BCE00A /* Project object */ = {
+		FE4C5CED2B6016BB00AD3DE9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
 				TargetAttributes = {
-					FE425FDD2B06764C00BCE00A = {
-						CreatedOnToolsVersion = 15.0.1;
+					FE4C5CF42B6016BB00AD3DE9 = {
+						CreatedOnToolsVersion = 15.2;
 					};
 				};
 			};
-			buildConfigurationList = FE425FD92B06764C00BCE00A /* Build configuration list for PBXProject "Interactive Pop Gesture" */;
+			buildConfigurationList = FE4C5CF02B6016BB00AD3DE9 /* Build configuration list for PBXProject "MacOS Dock Progress Bar" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -132,44 +121,43 @@
 				en,
 				Base,
 			);
-			mainGroup = FE425FD52B06764C00BCE00A;
-			productRefGroup = FE425FDF2B06764C00BCE00A /* Products */;
+			mainGroup = FE4C5CEC2B6016BB00AD3DE9;
+			productRefGroup = FE4C5CF62B6016BB00AD3DE9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FE425FDD2B06764C00BCE00A /* Interactive Pop Gesture */,
+				FE4C5CF42B6016BB00AD3DE9 /* MacOS Dock Progress Bar */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		FE425FDC2B06764C00BCE00A /* Resources */ = {
+		FE4C5CF32B6016BB00AD3DE9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE425FE92B06764D00BCE00A /* Preview Assets.xcassets in Resources */,
-				FE425FE62B06764D00BCE00A /* Assets.xcassets in Resources */,
+				FE4C5D002B6016BD00AD3DE9 /* Preview Assets.xcassets in Resources */,
+				FE4C5CFD2B6016BD00AD3DE9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		FE425FDA2B06764C00BCE00A /* Sources */ = {
+		FE4C5CF12B6016BB00AD3DE9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE425FF12B06772E00BCE00A /* FullSwipeNavigationStack.swift in Sources */,
-				FE425FE42B06764C00BCE00A /* ContentView.swift in Sources */,
-				FE425FF42B06783100BCE00A /* UIViewHelpers.swift in Sources */,
-				FE425FE22B06764C00BCE00A /* Interactive_Pop_GestureApp.swift in Sources */,
+				FE4C5CFB2B6016BB00AD3DE9 /* ContentView.swift in Sources */,
+				FE4C5D082B6016E100AD3DE9 /* DockProgress.swift in Sources */,
+				FE4C5CF92B6016BB00AD3DE9 /* MacOS_Dock_Progress_BarApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		FE425FEA2B06764D00BCE00A /* Debug */ = {
+		FE4C5D012B6016BD00AD3DE9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -221,7 +209,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -232,7 +220,7 @@
 			};
 			name = Debug;
 		};
-		FE425FEB2B06764D00BCE00A /* Release */ = {
+		FE4C5D022B6016BD00AD3DE9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -278,7 +266,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -288,14 +276,14 @@
 			};
 			name = Release;
 		};
-		FE425FED2B06764D00BCE00A /* Debug */ = {
+		FE4C5D042B6016BD00AD3DE9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Interactive Pop Gesture/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"MacOS Dock Progress Bar/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -303,28 +291,31 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "it.matbuompy.Interactive-Pop-Gesture";
+				PRODUCT_BUNDLE_IDENTIFIER = "it.matbuompy.MacOS-Dock-Progress-Bar";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = macosx;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		FE425FEE2B06764D00BCE00A /* Release */ = {
+		FE4C5D052B6016BD00AD3DE9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Interactive Pop Gesture/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"MacOS Dock Progress Bar/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -332,42 +323,45 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "it.matbuompy.Interactive-Pop-Gesture";
+				PRODUCT_BUNDLE_IDENTIFIER = "it.matbuompy.MacOS-Dock-Progress-Bar";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = macosx;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FE425FD92B06764C00BCE00A /* Build configuration list for PBXProject "Interactive Pop Gesture" */ = {
+		FE4C5CF02B6016BB00AD3DE9 /* Build configuration list for PBXProject "MacOS Dock Progress Bar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FE425FEA2B06764D00BCE00A /* Debug */,
-				FE425FEB2B06764D00BCE00A /* Release */,
+				FE4C5D012B6016BD00AD3DE9 /* Debug */,
+				FE4C5D022B6016BD00AD3DE9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FE425FEC2B06764D00BCE00A /* Build configuration list for PBXNativeTarget "Interactive Pop Gesture" */ = {
+		FE4C5D032B6016BD00AD3DE9 /* Build configuration list for PBXNativeTarget "MacOS Dock Progress Bar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FE425FED2B06764D00BCE00A /* Debug */,
-				FE425FEE2B06764D00BCE00A /* Release */,
+				FE4C5D042B6016BD00AD3DE9 /* Debug */,
+				FE4C5D052B6016BD00AD3DE9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = FE425FD62B06764C00BCE00A /* Project object */;
+	rootObject = FE4C5CED2B6016BB00AD3DE9 /* Project object */;
 }
