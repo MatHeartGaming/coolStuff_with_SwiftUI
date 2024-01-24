@@ -18,6 +18,7 @@ struct ContentView: View {
     @State private var spacing: CGFloat = 0
     @State private var rotation: CGFloat = 0
     @State private var enableReflection = false
+    @State private var mirrorCards = false
     @AppStorage("isDark") private var isDark = false
     
     var body: some View {
@@ -32,6 +33,10 @@ struct ContentView: View {
                         .fill(item.color.gradient)
                 }
                 .frame(height: 180)
+                .rotation3DEffect(
+                    .degrees(mirrorCards ? 180 : 0),
+                    axis: (x: 0.0, y: 1.0, z: 0.0)
+                )
                 
                 Spacer(minLength: 0)
                 
@@ -39,13 +44,15 @@ struct ContentView: View {
                 VStack(alignment: .leading, spacing: 10) {
                     Toggle("Toggle Reflection", isOn: $enableReflection)
                     
+                    Toggle("Mirror cards", isOn: $mirrorCards)
+                    
                     Toggle("Dark Mode", isOn: $isDark)
                     
                     Text("Card Spacing")
                         .font(.caption2)
                         .foregroundStyle(.gray)
                     
-                    Slider(value: $spacing, in: -120...90)
+                    Slider(value: $spacing, in: -250...90)
                     
                     Text("Card Rotation")
                         .font(.caption2)
