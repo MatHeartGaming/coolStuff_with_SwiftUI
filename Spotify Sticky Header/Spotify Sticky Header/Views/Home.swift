@@ -84,6 +84,7 @@ struct Home: View {
                 .clipped()
                 .overlay {
                     ZStack {
+                        
                         /// Gradient Overlay
                         Rectangle()
                             .fill(
@@ -175,6 +176,7 @@ struct Home: View {
                 Button(action: {}, label: {
                     Image(systemName: "chevron.left")
                         .font(.title3)
+                        /// You could use titleprogress to apply different styles based on the scroll position
                         .foregroundStyle(.white)
                 }) //: Back Button
                 
