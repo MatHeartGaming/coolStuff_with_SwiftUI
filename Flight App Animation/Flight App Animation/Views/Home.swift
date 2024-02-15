@@ -17,6 +17,9 @@ struct Home: View {
     @State private var offsetY: CGFloat = 0
     @State private var currentCardIndex: CGFloat = 0
     
+    /// Animator
+    @StateObject private var animator = Animator()
+    
     var body: some View {
         VStack(spacing: 0) {
             HeaderView()
@@ -34,6 +37,7 @@ struct Home: View {
                             }
                     })
                     .offset(x: -15, y: 15)
+                    .offset(x: animator.startAnimation ? 80 : 0)
                 }
                 .zIndex(1)
             PaymentCardView()
@@ -41,9 +45,94 @@ struct Home: View {
         } //: VSTACK
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background {
+            ZStack(alignment: .bottom) {
+                ZStack {
+                    if animator.showClouds {
+                        /// Cloud Views
+                        CloudView(delay: 1, size: size)
+                            .offset(y: size.height * -0.1)
+                        CloudView(delay: 0, size: size)
+                            .offset(y: size.height * 0.3)
+                        CloudView(delay: 2.5, size: size)
+                            .offset(y: size.height * 0.2)
+                        CloudView(delay: 2.5, size: size)
+                    }
+                }
+                .frame(maxHeight: .infinity)
+                
+                if animator.showLoadingView {
+                    BackgroundView()
+                        .transition(.scale)
+                        .opacity(animator.showFinalView ? 0 : 1)
+                }
+            }
+        }
+        .allowsHitTesting(!animator.showFinalView)
+        .background {
+            /// Safety check
+            if animator.startAnimation {
+                DetailView(size: size, safeArea: safeArea)
+                    .environmentObject(animator)
+            }
+        }
+        .overlayPreferenceValue(RectKey.self, { value in
+            if let anchor = value["PLANE_BOUNDS"] {
+                GeometryReader { proxy in
+                    /// Extracting Rect from Anchor using Geometry Reader
+                    let rect = proxy[anchor]
+                    let planeRect = animator.initalPlanePosition
+                    let status = animator.currentPaymentStatus
+                    
+                    /// Resetting Plane when Final View shows
+                    let animationStatus = status == .finished && !animator.showFinalView
+                    
+                    Image(.airplane)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: planeRect.width, height: planeRect.height)
+                        /// Flight movement animation
+                        .rotationEffect(.degrees(animationStatus ? -10 : 0))
+                        .shadow(color: .black.opacity(0.25),
+                                radius: 1,
+                                x: status == .finished ? -400 : 0,
+                                y: status == .finished ? 170 : 0)
+                        .offset(x: planeRect.minX, y: planeRect.minY)
+                        /// Moving plane a bit down at the start of the animation
+                        .offset(y: animator.startAnimation ? 50 : 0)
+                        .scaleEffect(animator.showFinalView ? 0.9 : 1, anchor: .bottom)
+                        .offset(y: animator.showFinalView ? 55 : 0)
+                        .onAppear {
+                            animator.initalPlanePosition = rect
+                        }
+                        .animation(.easeInOut(duration: animationStatus ? 3.5 : 3.5), value: animationStatus)
+                }
+            }
+        })
+        /// Overlayed Cloud over the airplane
+        .overlay {
+            if animator.showClouds {
+                CloudView(delay: 2.2, size: size)
+                    .offset(y: -size.height * 0.25)
+            }
+        } //: Cloud Overlay
+        .background {
             Color.BG
                 .ignoresSafeArea()
+        } //: Background
+        ///When the payment status changes to finished toggle clouds
+        .onChange(of: animator.currentPaymentStatus) { newValue in
+            if newValue == .finished {
+                animator.showClouds = true
+                
+                /// Showing final View
+                DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                    withAnimation(.easeInOut(duration: 0.3)) {
+                        animator.showFinalView = true
+                    }
+                }
+            }
         }
+        
     }
     
     
@@ -84,6 +173,10 @@ struct Home: View {
                 .resizable()
                 .scaledToFit()
                 .frame(height: 160)
+                .opacity(0)
+                .anchorPreference(key: RectKey.self, value: .bounds, transform: { anchor in
+                    return ["PLANE_BOUNDS": anchor]
+                })
                 .padding(.bottom, -20)
             
         } //: VSTACK
@@ -98,6 +191,11 @@ struct Home: View {
                                       startPoint: .top,
                                       endPoint: .bottom))
         } //: Background
+        /// 3D rotation
+        .rotation3DEffect(.degrees(animator.startAnimation ? 90 : 0),
+                          axis: (x: 1, y: 0, z: 0),
+                          anchor: UnitPoint(x: 0.5, y: 0.8))
+        .offset(y: animator.startAnimation ? -100 : 0)
     }
     
     @ViewBuilder
@@ -134,7 +232,7 @@ struct Home: View {
                     .allowsHitTesting(false)
                 
                 /// Purchase Button
-                Button(action: {}, label: {
+                Button(action: buyTicket, label: {
                     Text("Confirm €320.00")
                         .font(.callout)
                         .fontWeight(.semibold)
@@ -166,18 +264,24 @@ struct Home: View {
                         /// Increasing / Decreasing index on condition
                         if translation > 100 && currentCardIndex > 0 {
                             currentCardIndex -= 1
-                        } else if translation < 0 && -translation > 100 && currentCardIndex < CGFloat(sampleCards.count - 2) {
+                        } else if translation < 0 && -translation > 100 && currentCardIndex < CGFloat(sampleCards.count - 1) {
                             currentCardIndex += 1
                         }
                         
                         offsetY = .zero
                     }
                 })
-        )
+        ) //: Card Gesture
         .background {
             Color.white
                 .ignoresSafeArea()
         }
+        .clipped()
+        /// Applying 3D rotation
+        .rotation3DEffect(.degrees(animator.startAnimation ? -90 : 0),
+                          axis: (x: 1, y: 0, z: 0),
+                          anchor: UnitPoint(x: 0.5, y: 0.25))
+        .offset(y: animator.startAnimation ? 100 : 0)
     }
     
     @ViewBuilder
@@ -207,6 +311,101 @@ struct Home: View {
         .onTapGesture {
             print(index)
         }
+    }
+    
+    /// Background Loading View with Ring animation
+    @ViewBuilder
+    private func BackgroundView() -> some View {
+        VStack {
+            VStack(spacing: 9) {
+                ForEach(PaymentStatus.allCases, id: \.self) { status in
+                    Text(status.rawValue)
+                        .font(.title3)
+                        .fontWeight(.semibold)
+                        .foregroundStyle(.gray.opacity(0.5))
+                        .frame(height: 30)
+                } //: Loop Payment status
+            } //: VSTACK
+            .offset(y: animator.currentPaymentStatus == .started ? -30 
+                    : (animator.currentPaymentStatus == .finished ? -80 : 0))
+            .frame(height: 40, alignment: .top)
+            .clipped()
+            
+            ZStack {
+                /// Rings
+                
+                Circle()
+                    .fill(.BG)
+                    .shadow(color: .white.opacity(0.45), radius: 5, x: 5, y: 5)
+                    .shadow(color: .white.opacity(0.45), radius: 5, x: -5, y: -5)
+                    .scaleEffect(animator.ringAnimation[0] ? 5: 1)
+                    /// To gradually dissolve the ring as it expands
+                    .opacity(animator.ringAnimation[0] ? 0 : 1)
+                
+                Circle()
+                    .fill(.BG)
+                    .shadow(color: .white.opacity(0.45), radius: 5, x: 5, y: 5)
+                    .shadow(color: .white.opacity(0.45), radius: 5, x: -5, y: -5)
+                    .scaleEffect(animator.ringAnimation[1] ? 5: 1)
+                    /// To gradually dissolve the ring as it expands
+                    .opacity(animator.ringAnimation[1] ? 0 : 1)
+                
+                
+                Circle()
+                    .fill(.BG)
+                    .shadow(color: .black.opacity(0.1), radius: 5, x: 5, y: 5)
+                    .shadow(color: .black.opacity(0.1), radius: 5, x: -5, y: -5)
+                    .scaleEffect(1.22)
+                
+                Circle()
+                    .fill(.white)
+                    .shadow(color: .black.opacity(0.1), radius: 5, x: 5, y: 5)
+                
+                Image(systemName: animator.currentPaymentStatus.symbolImage)
+                    .font(.largeTitle)
+                    .foregroundStyle(.gray.opacity(0.5))
+                
+            } //: ZSTACK
+            .frame(width: 80, height: 80)
+            .padding(.top, 20)
+            
+        } //: VSTACK
+        /// Using Timer to perform Loading effect
+        .onReceive(Timer.publish(every: 2.3, on: .main, in: .common).autoconnect(), perform: { _ in
+            withAnimation(.easeInOut(duration: 0.3)) {
+                if animator.currentPaymentStatus == .initiated {
+                    animator.currentPaymentStatus = .started
+                } else {
+                    animator.currentPaymentStatus = .finished
+                }
+            }
+        })
+        .onAppear {
+            withAnimation(.linear(duration: 2.5).repeatForever(autoreverses: false)) {
+                animator.ringAnimation[0] = true
+            }
+            
+            withAnimation(.linear(duration: 2.5).delay(0.35).repeatForever(autoreverses: false)) {
+                animator.ringAnimation[1] = true
+            }
+        }
+        //.frame(maxHeight: .infinity, alignment: .bottom)
+        .padding(.bottom, size.height * 0.15)
+    }
+    
+    
+    // MARK: - Functions
+    
+    func buyTicket() {
+        withAnimation(.easeInOut(duration: 0.85)) {
+            animator.startAnimation = true
+        }
+        
+        /// Show Loading View
+        withAnimation(.easeInOut(duration: 0.7).delay(0.5)) {
+            animator.showLoadingView = true
+        }
+        
     }
     
 }

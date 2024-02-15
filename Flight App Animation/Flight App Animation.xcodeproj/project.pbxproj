@@ -15,6 +15,10 @@
 		FEC03A182B7E222100994F6C /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC03A172B7E222100994F6C /* Card.swift */; };
 		FEC03A1A2B7E293200994F6C /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC03A192B7E293200994F6C /* DetailView.swift */; };
 		FEC03A1C2B7E2B0800994F6C /* FlightDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC03A1B2B7E2B0800994F6C /* FlightDetailsView.swift */; };
+		FEC03A1F2B7E475000994F6C /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC03A1E2B7E475000994F6C /* Animator.swift */; };
+		FEC03A212B7E48F800994F6C /* RectKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC03A202B7E48F800994F6C /* RectKey.swift */; };
+		FEC03A232B7E4CEF00994F6C /* PaymentStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC03A222B7E4CEF00994F6C /* PaymentStatus.swift */; };
+		FEC03A252B7E535C00994F6C /* CloudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC03A242B7E535C00994F6C /* CloudView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +31,10 @@
 		FEC03A172B7E222100994F6C /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		FEC03A192B7E293200994F6C /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		FEC03A1B2B7E2B0800994F6C /* FlightDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDetailsView.swift; sourceTree = "<group>"; };
+		FEC03A1E2B7E475000994F6C /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
+		FEC03A202B7E48F800994F6C /* RectKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectKey.swift; sourceTree = "<group>"; };
+		FEC03A222B7E4CEF00994F6C /* PaymentStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentStatus.swift; sourceTree = "<group>"; };
+		FEC03A242B7E535C00994F6C /* CloudView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +67,7 @@
 		FEC03A042B7E159D00994F6C /* Flight App Animation */ = {
 			isa = PBXGroup;
 			children = (
+				FEC03A1D2B7E474800994F6C /* Helpers */,
 				FEC03A162B7E221800994F6C /* Models */,
 				FEC03A132B7E1A6900994F6C /* Views */,
 				FEC03A052B7E159D00994F6C /* Flight_App_AnimationApp.swift */,
@@ -83,6 +92,7 @@
 				FEC03A142B7E1A7400994F6C /* Home.swift */,
 				FEC03A192B7E293200994F6C /* DetailView.swift */,
 				FEC03A1B2B7E2B0800994F6C /* FlightDetailsView.swift */,
+				FEC03A242B7E535C00994F6C /* CloudView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -91,8 +101,18 @@
 			isa = PBXGroup;
 			children = (
 				FEC03A172B7E222100994F6C /* Card.swift */,
+				FEC03A222B7E4CEF00994F6C /* PaymentStatus.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		FEC03A1D2B7E474800994F6C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FEC03A1E2B7E475000994F6C /* Animator.swift */,
+				FEC03A202B7E48F800994F6C /* RectKey.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,12 +185,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEC03A232B7E4CEF00994F6C /* PaymentStatus.swift in Sources */,
 				FEC03A082B7E159D00994F6C /* ContentView.swift in Sources */,
 				FEC03A1C2B7E2B0800994F6C /* FlightDetailsView.swift in Sources */,
 				FEC03A152B7E1A7400994F6C /* Home.swift in Sources */,
 				FEC03A062B7E159D00994F6C /* Flight_App_AnimationApp.swift in Sources */,
 				FEC03A1A2B7E293200994F6C /* DetailView.swift in Sources */,
+				FEC03A1F2B7E475000994F6C /* Animator.swift in Sources */,
 				FEC03A182B7E222100994F6C /* Card.swift in Sources */,
+				FEC03A252B7E535C00994F6C /* CloudView.swift in Sources */,
+				FEC03A212B7E48F800994F6C /* RectKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

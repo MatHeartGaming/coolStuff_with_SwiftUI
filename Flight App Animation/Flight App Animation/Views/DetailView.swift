@@ -10,6 +10,7 @@ import SwiftUI
 struct DetailView: View {
     
     // MARK: - Properties
+    @EnvironmentObject private var animator: Animator
     @Environment(\.dismiss) private var dismiss
     var size: CGSize
     var safeArea: EdgeInsets
@@ -71,11 +72,14 @@ struct DetailView: View {
             .padding(.horizontal, 20)
             .padding(.top, safeArea.top + 15)
             .padding([.horizontal, .bottom], 15)
+            .offset(y: animator.showFinalView ? 0 : 300)
             .background {
                 Rectangle()
                     .fill(.blueTop)
+                    .scaleEffect(y: animator.showFinalView ? 1 : 0.001, anchor: .top)
                     .padding(.bottom, 80)
             }
+            .clipped()
             
             /// Contact Info View
             GeometryReader { proxy in
@@ -86,10 +90,13 @@ struct DetailView: View {
                         ContactInformation()
                     }
                     .scrollIndicators(.hidden)
-                }
-            }
+                } //: View That Fits
+                .offset(y: animator.showFinalView ? 0 : size.height)
+            } //: GEOMETRY
             
         } //: VSTACK
+        .animation(.easeInOut(duration: animator.showFinalView ? 1 : 0.3).delay(animator.showFinalView ? 1 : 0),
+                   value: animator.showFinalView)
     }
     
     // MARK: - Views
@@ -126,7 +133,7 @@ struct DetailView: View {
             
             
             Button(action: {
-                dismiss()
+                animator.resetAnimation()
             }, label: {
                 Text("Go To Home Screen")
                     .fontWeight(.semibold)
@@ -195,9 +202,11 @@ struct DetailView: View {
         let safeArea = $0.safeAreaInsets
         DetailView(size: size, safeArea: safeArea)
             .ignoresSafeArea(.container)
+            .environmentObject(Animator())
     }
 }
 
 #Preview {
     ContentView()
+        .environmentObject(Animator())
 }
