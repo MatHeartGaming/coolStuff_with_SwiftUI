@@ -114,6 +114,7 @@ struct Home: View {
                 .padding()
                 .padding(.bottom, 100)
             } //: V-SCROLL
+            .scrollIndicators(.hidden)
         } //: NAVIGATION
     }
     
