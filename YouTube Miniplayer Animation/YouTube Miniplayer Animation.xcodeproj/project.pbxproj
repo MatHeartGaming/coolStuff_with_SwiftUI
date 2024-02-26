@@ -1,0 +1,393 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FED04AF02B8C993D008B5056 /* YouTube_Miniplayer_AnimationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED04AEF2B8C993D008B5056 /* YouTube_Miniplayer_AnimationApp.swift */; };
+		FED04AF22B8C993D008B5056 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED04AF12B8C993D008B5056 /* ContentView.swift */; };
+		FED04AF42B8C993E008B5056 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FED04AF32B8C993E008B5056 /* Assets.xcassets */; };
+		FED04AF72B8C993E008B5056 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FED04AF62B8C993E008B5056 /* Preview Assets.xcassets */; };
+		FED04B002B8C9993008B5056 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED04AFF2B8C9993008B5056 /* Tab.swift */; };
+		FED04B032B8C9A0B008B5056 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED04B022B8C9A0B008B5056 /* Home.swift */; };
+		FED04B052B8C9D76008B5056 /* PlayerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED04B042B8C9D76008B5056 /* PlayerItem.swift */; };
+		FED04B072B8CA1D3008B5056 /* PlayerConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED04B062B8CA1D3008B5056 /* PlayerConfig.swift */; };
+		FED04B092B8CA29A008B5056 /* MiniPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED04B082B8CA29A008B5056 /* MiniPlayer.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		FED04AEC2B8C993D008B5056 /* YouTube Miniplayer Animation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "YouTube Miniplayer Animation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FED04AEF2B8C993D008B5056 /* YouTube_Miniplayer_AnimationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTube_Miniplayer_AnimationApp.swift; sourceTree = "<group>"; };
+		FED04AF12B8C993D008B5056 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FED04AF32B8C993E008B5056 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FED04AF62B8C993E008B5056 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FED04AFF2B8C9993008B5056 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
+		FED04B022B8C9A0B008B5056 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		FED04B042B8C9D76008B5056 /* PlayerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerItem.swift; sourceTree = "<group>"; };
+		FED04B062B8CA1D3008B5056 /* PlayerConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerConfig.swift; sourceTree = "<group>"; };
+		FED04B082B8CA29A008B5056 /* MiniPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniPlayer.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FED04AE92B8C993D008B5056 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FED04AE32B8C993D008B5056 = {
+			isa = PBXGroup;
+			children = (
+				FED04AEE2B8C993D008B5056 /* YouTube Miniplayer Animation */,
+				FED04AED2B8C993D008B5056 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FED04AED2B8C993D008B5056 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FED04AEC2B8C993D008B5056 /* YouTube Miniplayer Animation.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FED04AEE2B8C993D008B5056 /* YouTube Miniplayer Animation */ = {
+			isa = PBXGroup;
+			children = (
+				FED04B012B8C9A04008B5056 /* Views */,
+				FED04AFE2B8C998C008B5056 /* Tab */,
+				FED04AFD2B8C9976008B5056 /* Model */,
+				FED04AEF2B8C993D008B5056 /* YouTube_Miniplayer_AnimationApp.swift */,
+				FED04AF12B8C993D008B5056 /* ContentView.swift */,
+				FED04AF32B8C993E008B5056 /* Assets.xcassets */,
+				FED04AF52B8C993E008B5056 /* Preview Content */,
+			);
+			path = "YouTube Miniplayer Animation";
+			sourceTree = "<group>";
+		};
+		FED04AF52B8C993E008B5056 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				FED04AF62B8C993E008B5056 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FED04AFD2B8C9976008B5056 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FED04B042B8C9D76008B5056 /* PlayerItem.swift */,
+				FED04B062B8CA1D3008B5056 /* PlayerConfig.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FED04AFE2B8C998C008B5056 /* Tab */ = {
+			isa = PBXGroup;
+			children = (
+				FED04AFF2B8C9993008B5056 /* Tab.swift */,
+			);
+			path = Tab;
+			sourceTree = "<group>";
+		};
+		FED04B012B8C9A04008B5056 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FED04B022B8C9A0B008B5056 /* Home.swift */,
+				FED04B082B8CA29A008B5056 /* MiniPlayer.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FED04AEB2B8C993D008B5056 /* YouTube Miniplayer Animation */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FED04AFA2B8C993E008B5056 /* Build configuration list for PBXNativeTarget "YouTube Miniplayer Animation" */;
+			buildPhases = (
+				FED04AE82B8C993D008B5056 /* Sources */,
+				FED04AE92B8C993D008B5056 /* Frameworks */,
+				FED04AEA2B8C993D008B5056 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "YouTube Miniplayer Animation";
+			productName = "YouTube Miniplayer Animation";
+			productReference = FED04AEC2B8C993D008B5056 /* YouTube Miniplayer Animation.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FED04AE42B8C993D008B5056 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					FED04AEB2B8C993D008B5056 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+				};
+			};
+			buildConfigurationList = FED04AE72B8C993D008B5056 /* Build configuration list for PBXProject "YouTube Miniplayer Animation" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FED04AE32B8C993D008B5056;
+			productRefGroup = FED04AED2B8C993D008B5056 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FED04AEB2B8C993D008B5056 /* YouTube Miniplayer Animation */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FED04AEA2B8C993D008B5056 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FED04AF72B8C993E008B5056 /* Preview Assets.xcassets in Resources */,
+				FED04AF42B8C993E008B5056 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FED04AE82B8C993D008B5056 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FED04B002B8C9993008B5056 /* Tab.swift in Sources */,
+				FED04AF22B8C993D008B5056 /* ContentView.swift in Sources */,
+				FED04B052B8C9D76008B5056 /* PlayerItem.swift in Sources */,
+				FED04B032B8C9A0B008B5056 /* Home.swift in Sources */,
+				FED04B092B8CA29A008B5056 /* MiniPlayer.swift in Sources */,
+				FED04B072B8CA1D3008B5056 /* PlayerConfig.swift in Sources */,
+				FED04AF02B8C993D008B5056 /* YouTube_Miniplayer_AnimationApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		FED04AF82B8C993E008B5056 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FED04AF92B8C993E008B5056 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FED04AFB2B8C993E008B5056 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"YouTube Miniplayer Animation/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "it.matbuompy.YouTube-Miniplayer-Animation";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FED04AFC2B8C993E008B5056 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"YouTube Miniplayer Animation/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "it.matbuompy.YouTube-Miniplayer-Animation";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FED04AE72B8C993D008B5056 /* Build configuration list for PBXProject "YouTube Miniplayer Animation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FED04AF82B8C993E008B5056 /* Debug */,
+				FED04AF92B8C993E008B5056 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FED04AFA2B8C993E008B5056 /* Build configuration list for PBXNativeTarget "YouTube Miniplayer Animation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FED04AFB2B8C993E008B5056 /* Debug */,
+				FED04AFC2B8C993E008B5056 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FED04AE42B8C993D008B5056 /* Project object */;
+}
