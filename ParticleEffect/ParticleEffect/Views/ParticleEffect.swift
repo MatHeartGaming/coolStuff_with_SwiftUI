@@ -82,8 +82,6 @@ fileprivate struct ParticleModifier: ViewModifier {
             let maxX: CGFloat = (progress > 0.5) ? 100 : -100
             let maxY: CGFloat = 60
             
-            print(progress)
-            
             let randomX: CGFloat = ((progress > 0.5 ? progress - 0.5 : progress) * maxX)
             let randomY: CGFloat = ((progress > 0.5 ? progress - 0.5 : progress) * maxY) + 35
             

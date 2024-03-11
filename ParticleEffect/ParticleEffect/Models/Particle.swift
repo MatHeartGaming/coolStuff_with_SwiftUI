@@ -20,7 +20,5 @@ struct Particle: Identifiable {
         randomY = 0
         scale = 1
         opacity = 1
-    }
-    
-    
+    }  
 }
