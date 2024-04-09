@@ -43,8 +43,8 @@ extension Date {
     }
 }
 
-enum ChartType: String {
-    case pie
-    case line
-    case bar
+enum ChartType: String, CaseIterable {
+    case pie = "Pie"
+    case line = "Line"
+    case bar = "Bar"
 }

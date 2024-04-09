@@ -14,22 +14,26 @@ struct ContentView: View {
     @State private var appDownloads: [Download] = sampleDownloads
     @State private var isAnimated: Bool = false
     @State private var trigger: Bool = false
-    @State private var chartSelection: ChartType = .line
+    @State private var chartSelection: ChartType = .pie
     
     var body: some View {
         NavigationStack {
             VStack {
-                Chart {
-                    ForEach(appDownloads) { download in
-                        SectorMark(angle: .value("Downloads", download.isAnimated ? download.value : 0))
-                            .foregroundStyle(by: .value("Month", download.month))
-                            .opacity(download.isAnimated ? 1 : 0)
+                    Picker("Select Chart Style", selection: $chartSelection) {
+                        ForEach(ChartType.allCases, id: \.rawValue) { type in
+                            Text(type.rawValue)
+                                .tag(type)
+                        }
                     }
+                    .pickerStyle(.segmented)
+                
+                if chartSelection == .bar {
+                    BarChart()
+                } else if chartSelection == .line {
+                    LineChart()
+                } else {
+                    PieChart()
                 }
-                .chartYScale(domain: 0...12000)
-                .frame(height: 250)
-                .padding()
-                .background(.background, in: .rect(cornerRadius: 10))
                 
                 Spacer()
             } //: VSTACK
@@ -116,7 +120,7 @@ struct ContentView: View {
         isAnimated = true
         $appDownloads.enumerated().forEach { index, element in
             /// To avoid animating large set of data after a certain index
-            if index > 5 {
+            if index > 10 {
                 element.wrappedValue.isAnimated = true
             } else {
                 let delay = Double(index) + 0.05
