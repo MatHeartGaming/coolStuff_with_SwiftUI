@@ -18,10 +18,12 @@ struct MainView: View {
             /// Custom Tabs
             CustomTabBar()
         }
+        .coordinateSpace(.named("MAINVIEW"))
     }
 }
 
 #Preview {
     MainView()
+        .environment(AppData())
         .preferredColorScheme(.dark)
 }

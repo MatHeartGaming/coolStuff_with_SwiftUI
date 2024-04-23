@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE1B4CB32BD7F4DA00B4CB5D /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1B4CB22BD7F4DA00B4CB5D /* Profile.swift */; };
+		FE1B4CB52BD7F57600B4CB5D /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1B4CB42BD7F57600B4CB5D /* ProfileView.swift */; };
+		FE1B4CB72BD7F86800B4CB5D /* RectAnchorKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1B4CB62BD7F86800B4CB5D /* RectAnchorKey.swift */; };
+		FE1B4CB92BD7FAD200B4CB5D /* NetflixLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1B4CB82BD7FAD200B4CB5D /* NetflixLoader.swift */; };
 		FEC048522BD2B36B00B149A5 /* Netflix_UI_AnimationsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC048512BD2B36B00B149A5 /* Netflix_UI_AnimationsApp.swift */; };
 		FEC048542BD2B36B00B149A5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC048532BD2B36B00B149A5 /* ContentView.swift */; };
 		FEC048562BD2B36C00B149A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEC048552BD2B36C00B149A5 /* Assets.xcassets */; };
@@ -22,6 +26,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FE1B4CB22BD7F4DA00B4CB5D /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		FE1B4CB42BD7F57600B4CB5D /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		FE1B4CB62BD7F86800B4CB5D /* RectAnchorKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectAnchorKey.swift; sourceTree = "<group>"; };
+		FE1B4CB82BD7FAD200B4CB5D /* NetflixLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetflixLoader.swift; sourceTree = "<group>"; };
 		FEC0484E2BD2B36B00B149A5 /* Netflix UI Animations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Netflix UI Animations.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEC048512BD2B36B00B149A5 /* Netflix_UI_AnimationsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Netflix_UI_AnimationsApp.swift; sourceTree = "<group>"; };
 		FEC048532BD2B36B00B149A5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -91,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				FEC048702BD2BACB00B149A5 /* Tab.swift */,
+				FE1B4CB22BD7F4DA00B4CB5D /* Profile.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -102,6 +111,7 @@
 				FEC048662BD2B75200B149A5 /* SplashScreen.swift */,
 				FEC0486C2BD2BA8000B149A5 /* MainView.swift */,
 				FEC0486E2BD2BAA300B149A5 /* CustomTabBar.swift */,
+				FE1B4CB42BD7F57600B4CB5D /* ProfileView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -126,6 +136,8 @@
 			isa = PBXGroup;
 			children = (
 				FEC048732BD2BC6500B149A5 /* NoAnimationButtonStyle.swift */,
+				FE1B4CB62BD7F86800B4CB5D /* RectAnchorKey.swift */,
+				FE1B4CB82BD7FAD200B4CB5D /* NetflixLoader.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -209,12 +221,16 @@
 			files = (
 				FEC0486F2BD2BAA300B149A5 /* CustomTabBar.swift in Sources */,
 				FEC048742BD2BC6500B149A5 /* NoAnimationButtonStyle.swift in Sources */,
+				FE1B4CB52BD7F57600B4CB5D /* ProfileView.swift in Sources */,
 				FEC048672BD2B75200B149A5 /* SplashScreen.swift in Sources */,
+				FE1B4CB72BD7F86800B4CB5D /* RectAnchorKey.swift in Sources */,
 				FEC048542BD2B36B00B149A5 /* ContentView.swift in Sources */,
 				FEC048522BD2B36B00B149A5 /* Netflix_UI_AnimationsApp.swift in Sources */,
 				FEC0486D2BD2BA8000B149A5 /* MainView.swift in Sources */,
 				FEC0486B2BD2B94900B149A5 /* AppData.swift in Sources */,
+				FE1B4CB32BD7F4DA00B4CB5D /* Profile.swift in Sources */,
 				FEC048712BD2BACB00B149A5 /* Tab.swift in Sources */,
+				FE1B4CB92BD7FAD200B4CB5D /* NetflixLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

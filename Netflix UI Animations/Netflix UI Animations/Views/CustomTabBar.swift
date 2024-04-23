@@ -21,12 +21,27 @@ struct CustomTabBar: View {
                     VStack(spacing: 2) {
                         Group {
                             if tab.icon == "Profile" {
-                                Image(.leon)
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 25, height: 25)
-                                    .clipShape(.rect(cornerRadius: 4))
-                                    .frame(width: 35, height: 35)
+                                GeometryReader { proxy in
+                                    let rect = proxy.frame(in: .named("MAINVIEW"))
+                                    
+                                    if let profile = appData.watchingProfile,
+                                        !appData.animateProfile {
+                                        Image(profile.icon)
+                                            .resizable()
+                                            .scaledToFill()
+                                            .frame(width: 25, height: 25)
+                                            .clipShape(.rect(cornerRadius: 4))
+                                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                    }
+                                    
+                                    Color.clear
+                                        .preference(key: RectKey.self, value: rect)
+                                        .onPreferenceChange(RectKey.self) {
+                                            appData.tabProfileRect = $0
+                                        }
+                                    
+                                } //: GEOMETRY
+                                .frame(width: 35, height: 35)
                             } else {
                                 Image(systemName: tab.icon)
                                     .font(.title3)
@@ -54,7 +69,14 @@ struct CustomTabBar: View {
                     .contentShape(.rect)
                 }
                 .buttonStyle(NoAnimationButtonStyle())
-                
+                .simultaneousGesture(LongPressGesture().onEnded({ _ in
+                    guard tab == .account else { return }
+                    withAnimation(.snappy(duration: 0.3)) {
+                        appData.showProfileView = true
+                        appData.hideMainView = true
+                        appData.fromTabBar = true
+                    }
+                }))
 
             }
         } //: HSTACK
@@ -72,4 +94,8 @@ struct CustomTabBar: View {
     CustomTabBar()
         .environment(AppData())
         .preferredColorScheme(.dark)
+}
+
+#Preview {
+    ContentView()
 }

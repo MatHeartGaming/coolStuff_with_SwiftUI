@@ -25,6 +25,8 @@ struct SplashScreen: View {
                     .playing(.fromProgress(0, toProgress: AnimationProgressTime(progress), loopMode: .playOnce))
                     .animationDidFinish({ completed in
                         appData.isSplashFinished = progress != 0 && completed
+                        appData.showProfileView = appData.isSplashFinished
+                        appData.hideMainView = appData.showProfileView
                     })
                     /// To make ti look good on all iPhone screen sizes
                     .frame(width: 600, height: 400)

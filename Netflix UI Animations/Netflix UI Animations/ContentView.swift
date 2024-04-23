@@ -17,6 +17,19 @@ struct ContentView: View {
             
             MainView()
             
+            if appData.hideMainView {
+                Rectangle()
+                    .fill(.black)
+                    .ignoresSafeArea()
+            }
+            
+            ZStack {
+                if appData.showProfileView {
+                    ProfileView()
+                }
+            } //: ZSTACK
+            .animation(.snappy, value: appData.showProfileView)
+            
             if !appData.isSplashFinished {
                 SplashScreen()
             }
