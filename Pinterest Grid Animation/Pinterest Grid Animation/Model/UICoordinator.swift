@@ -14,6 +14,7 @@ class UICoordinator {
     
     var scrollView: UIScrollView = .init(frame: .zero)
     var rect: CGRect = .zero
+    var selectedItem: Item?
     
     /// Animation
     var animationLayer: UIImage?
@@ -22,6 +23,9 @@ class UICoordinator {
     /// Root View
     var hideRootView: Bool = false
     
+    /// Detail View Properties
+    var headerOffset: CGFloat = .zero
+    
     func createVisibleAreaSnapshot() {
         let renderer = UIGraphicsImageRenderer(size: scrollView.bounds.size)
         let image = renderer.image { ctx in
@@ -29,6 +33,42 @@ class UICoordinator {
             scrollView.layer.render(in: ctx.cgContext)
         }
         animationLayer = image
+    }
+    
+    func toggleView(show: Bool, frame: CGRect, post: Item) {
+        if show {
+            selectedItem = post
+            /// Storing View's Rect
+            rect = frame
+            /// Generating ScrollView's Visible area Snapshot
+            createVisibleAreaSnapshot()
+            hideRootView = true
+            /// Animating View
+            withAnimation(.easeInOut(duration: 0.3), completionCriteria: .removed) {
+                animateView = true
+            } completion: { [unowned self] in
+                hideLayer = true
+            }
+        } else {
+            /// Closing View
+            hideLayer = false
+            withAnimation(.easeInOut(duration: 0.3), completionCriteria: .removed) {
+                animateView = false
+            } completion: { [unowned self] in
+                /// Resetting properties
+                resetAnimationProperties()
+            }
+        }
+    }
+    
+    private func resetAnimationProperties() {
+        DispatchQueue.main.async { [unowned self] in
+            headerOffset = .zero
+            hideRootView = false
+            //rect = .zero
+            selectedItem = nil
+            animationLayer = nil
+        }
     }
     
 }

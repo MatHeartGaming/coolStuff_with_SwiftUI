@@ -35,9 +35,13 @@ struct Home: View {
             })
             
         } //: SCROLL
+        .opacity(coordinator.hideRootView ? 0 : 1)
+        .scrollDisabled(coordinator.hideRootView)
+        .allowsHitTesting(!coordinator.hideRootView)
         .overlay {
             Detail()
                 .environment(coordinator)
+                .allowsHitTesting(coordinator.hideLayer)
             /*if let animationLayer = coordinator.animationLayer {
                 Image(uiImage: animationLayer)
                     .ignoresSafeArea()
@@ -54,21 +58,12 @@ struct Home: View {
         GeometryReader {
             let frame = $0.frame(in: .global)
             
-            if let image = post.image {
-                Image(uiImage: image)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: frame.width, height: frame.height)
-                    .clipShape(.rect(cornerRadius: 10))
-                    .contentShape(.rect(cornerRadius: 10))
-                    .onTapGesture {
-                        /// Storing View's Rect
-                        coordinator.rect = frame
-                        /// Generating ScrollView's Visible area Snapshot
-                        coordinator.createVisibleAreaSnapshot()
-                    }
-            }
-            
+            ImageView(post: post)
+                .clipShape(.rect(cornerRadius: 10))
+                .contentShape(.rect(cornerRadius: 10))
+                .onTapGesture {
+                    coordinator.toggleView(show: true, frame: frame, post: post)
+                }
         } //: GEOMETRY
         .frame(height: 180)
     }

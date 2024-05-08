@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE7949BF2BEBB28D0015D225 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7949BE2BEBB28D0015D225 /* ImageView.swift */; };
+		FE7949C12BEBB4630015D225 /* DummyContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7949C02BEBB4630015D225 /* DummyContent.swift */; };
+		FE7949C42BEBBB360015D225 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7949C32BEBBB360015D225 /* View+Extensions.swift */; };
 		FEB73F882BEA612300D4CD96 /* Pinterest_Grid_AnimationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB73F872BEA612300D4CD96 /* Pinterest_Grid_AnimationApp.swift */; };
 		FEB73F8A2BEA612300D4CD96 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB73F892BEA612300D4CD96 /* ContentView.swift */; };
 		FEB73F8C2BEA612500D4CD96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEB73F8B2BEA612500D4CD96 /* Assets.xcassets */; };
@@ -18,6 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FE7949BE2BEBB28D0015D225 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		FE7949C02BEBB4630015D225 /* DummyContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyContent.swift; sourceTree = "<group>"; };
+		FE7949C32BEBBB360015D225 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		FEB73F842BEA612300D4CD96 /* Pinterest Grid Animation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pinterest Grid Animation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEB73F872BEA612300D4CD96 /* Pinterest_Grid_AnimationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pinterest_Grid_AnimationApp.swift; sourceTree = "<group>"; };
 		FEB73F892BEA612300D4CD96 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -40,6 +46,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FE7949C22BEBBB270015D225 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FE7949C32BEBBB360015D225 /* View+Extensions.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		FEB73F7B2BEA612300D4CD96 = {
 			isa = PBXGroup;
 			children = (
@@ -89,8 +103,11 @@
 		FEB73F982BEA64B700D4CD96 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FE7949C22BEBBB270015D225 /* Helpers */,
 				FEB73F992BEA658600D4CD96 /* Home.swift */,
 				FEB73F9D2BEA7E5300D4CD96 /* Detail.swift */,
+				FE7949BE2BEBB28D0015D225 /* ImageView.swift */,
+				FE7949C02BEBB4630015D225 /* DummyContent.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -166,10 +183,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FEB73F8A2BEA612300D4CD96 /* ContentView.swift in Sources */,
+				FE7949C42BEBBB360015D225 /* View+Extensions.swift in Sources */,
 				FEB73F972BEA64B100D4CD96 /* Item.swift in Sources */,
 				FEB73F9E2BEA7E5300D4CD96 /* Detail.swift in Sources */,
 				FEB73F9A2BEA658600D4CD96 /* Home.swift in Sources */,
+				FE7949C12BEBB4630015D225 /* DummyContent.swift in Sources */,
 				FEB73F882BEA612300D4CD96 /* Pinterest_Grid_AnimationApp.swift in Sources */,
+				FE7949BF2BEBB28D0015D225 /* ImageView.swift in Sources */,
 				FEB73F9C2BEA67B600D4CD96 /* UICoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
