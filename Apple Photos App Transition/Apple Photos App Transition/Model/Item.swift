@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Item: Identifiable, Hashable {
     
-    let id: UUID = .init()
+    let id: String = UUID().uuidString
     var title: String
     var image: UIImage?
     var previewImage: UIImage?

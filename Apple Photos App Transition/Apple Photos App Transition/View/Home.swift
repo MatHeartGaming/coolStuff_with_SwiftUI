@@ -34,12 +34,19 @@ struct Home: View {
         GeometryReader {
             let size = $0.size
             
+            Rectangle()
+                .fill(.clear)
+                .anchorPreference(key: HeroKey.self, value: .bounds, transform: { anchor in
+                    return [item.id + "SOURCE": anchor]
+                })
+            
             if let previewImage = item.previewImage {
                 Image(uiImage: previewImage)
                     .resizable()
                     .scaledToFill()
                     .frame(width: size.width, height: size.height)
                     .clipped()
+                    .opacity(coordinator.selectedItem?.id == item.id ? 0 : 1)
                     
             }
         } //: GEOMETYRY

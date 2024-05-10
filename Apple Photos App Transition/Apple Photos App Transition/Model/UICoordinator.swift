@@ -19,5 +19,37 @@ class UICoordinator {
     var animateView: Bool = false
     var showDetailView: Bool = false
     
+    /// Scroll Positions
+    var detailScrollPosition: String?
+    
+    func didDetailPageChanged() {
+        if let updatedItem = items.first(where: { $0.id == detailScrollPosition }) {
+            selectedItem = updatedItem
+        }
+    }
+    
+    
+    func toggleView(show: Bool) {
+        if show {
+            detailScrollPosition = selectedItem?.id
+            withAnimation(.easeInOut(duration: 2), completionCriteria: .removed) {
+                animateView = true
+            } completion: {
+                self.showDetailView = true
+            }
+        } else {
+            showDetailView = false
+            withAnimation(.easeInOut(duration: 2), completionCriteria: .removed) {
+                animateView = false
+            } completion: {
+                self.resetAnimationProperties()
+            }
+        }
+    }
+    
+    func resetAnimationProperties() {
+        selectedItem = nil
+        detailScrollPosition = nil 
+    }
     
 }

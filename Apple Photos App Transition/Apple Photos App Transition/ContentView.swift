@@ -16,7 +16,14 @@ struct ContentView: View {
         NavigationStack {
             Home()
                 .environment(coordinator)
+                .allowsHitTesting(coordinator.selectedItem == nil)
         } //: NAVIGATION
+        .overlay {
+            Rectangle()
+                .fill(.background)
+                .ignoresSafeArea()
+                .opacity(coordinator.animateView ? 1 : 0)
+        }
         .overlay {
             if coordinator.selectedItem != nil {
                 Detail()
@@ -28,7 +35,12 @@ struct ContentView: View {
             if let selectedItem = coordinator.selectedItem,
                let sAnchor = value[selectedItem.id + "SOURCE"],
                let dAnchor = value[selectedItem.id + "DEST"] {
-                HeroLayer()
+                HeroLayer(
+                    item: selectedItem,
+                    sAnchor: sAnchor,
+                    dAnchor: dAnchor
+                )
+                .environment(coordinator)
             }
         })
     }
