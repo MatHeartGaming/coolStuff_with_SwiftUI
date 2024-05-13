@@ -22,7 +22,7 @@ struct ContentView: View {
             Rectangle()
                 .fill(.background)
                 .ignoresSafeArea()
-                .opacity(coordinator.animateView ? 1 : 0)
+                .opacity(coordinator.animateView ? 1 - coordinator.dragProgress : 0)
         }
         .overlay {
             if coordinator.selectedItem != nil {

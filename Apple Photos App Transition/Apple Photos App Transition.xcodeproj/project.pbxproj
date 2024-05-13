@@ -17,6 +17,7 @@
 		FE17507E2BED13A1001393EB /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE17507D2BED13A1001393EB /* Detail.swift */; };
 		FE1750802BED165F001393EB /* HeroLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE17507F2BED165F001393EB /* HeroLayer.swift */; };
 		FE1750822BED1710001393EB /* HeroKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1750812BED1710001393EB /* HeroKey.swift */; };
+		FEF883EA2BF2042D001DD123 /* VIew+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF883E92BF2042D001DD123 /* VIew+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		FE17507D2BED13A1001393EB /* Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
 		FE17507F2BED165F001393EB /* HeroLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroLayer.swift; sourceTree = "<group>"; };
 		FE1750812BED1710001393EB /* HeroKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroKey.swift; sourceTree = "<group>"; };
+		FEF883E92BF2042D001DD123 /* VIew+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VIew+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 		FE1750752BED0DF2001393EB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FEF883E82BF2041B001DD123 /* Helpers */,
 				FE17507B2BED0FA2001393EB /* Home.swift */,
 				FE17507D2BED13A1001393EB /* Detail.swift */,
 				FE17507F2BED165F001393EB /* HeroLayer.swift */,
@@ -99,6 +102,14 @@
 				FE1750812BED1710001393EB /* HeroKey.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		FEF883E82BF2041B001DD123 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FEF883E92BF2042D001DD123 /* VIew+Extensions.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,6 +184,7 @@
 			files = (
 				FE17507A2BED0F18001393EB /* UICoordinator.swift in Sources */,
 				FE17506A2BED0940001393EB /* ContentView.swift in Sources */,
+				FEF883EA2BF2042D001DD123 /* VIew+Extensions.swift in Sources */,
 				FE1750802BED165F001393EB /* HeroLayer.swift in Sources */,
 				FE17507E2BED13A1001393EB /* Detail.swift in Sources */,
 				FE17507C2BED0FA2001393EB /* Home.swift in Sources */,

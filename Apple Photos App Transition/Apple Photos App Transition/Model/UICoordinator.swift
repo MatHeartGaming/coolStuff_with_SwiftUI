@@ -21,10 +21,25 @@ class UICoordinator {
     
     /// Scroll Positions
     var detailScrollPosition: String?
+    var detailIndicatorPosition: String?
+    
+    /// Gesture Properties
+    var offset: CGSize = .zero
+    var dragProgress: CGFloat = .zero
     
     func didDetailPageChanged() {
         if let updatedItem = items.first(where: { $0.id == detailScrollPosition }) {
             selectedItem = updatedItem
+            /// Updating Indicator page
+            detailIndicatorPosition = updatedItem.id
+        }
+    }
+    
+    func didDetailIndicatorPageChanged() {
+        if let updatedItem = items.first(where: { $0.id == detailIndicatorPosition }) {
+            selectedItem = updatedItem
+            /// Updating detail page
+            detailScrollPosition = updatedItem.id
         }
     }
     
@@ -32,15 +47,17 @@ class UICoordinator {
     func toggleView(show: Bool) {
         if show {
             detailScrollPosition = selectedItem?.id
-            withAnimation(.easeInOut(duration: 2), completionCriteria: .removed) {
+            detailIndicatorPosition = selectedItem?.id
+            withAnimation(.easeInOut(duration: 0.2), completionCriteria: .removed) {
                 animateView = true
             } completion: {
                 self.showDetailView = true
             }
         } else {
             showDetailView = false
-            withAnimation(.easeInOut(duration: 2), completionCriteria: .removed) {
+            withAnimation(.easeInOut(duration: 0.2), completionCriteria: .removed) {
                 animateView = false
+                offset = .zero
             } completion: {
                 self.resetAnimationProperties()
             }
@@ -49,7 +66,10 @@ class UICoordinator {
     
     func resetAnimationProperties() {
         selectedItem = nil
-        detailScrollPosition = nil 
+        detailScrollPosition = nil
+        offset = .zero
+        dragProgress = .zero
+        detailIndicatorPosition = nil
     }
     
 }

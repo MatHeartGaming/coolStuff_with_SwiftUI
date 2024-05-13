@@ -29,13 +29,16 @@ struct Detail: View {
                 } //: H-SCROLL
                 /// Making it a paging virew
                 .scrollTargetBehavior(.paging)
+                .scrollIndicators(.hidden)
                 .scrollPosition(id: .init(get: {
                     return coordinator.detailScrollPosition
                 }, set: { id in
                     coordinator.detailScrollPosition = id
                 }))
                 .onChange(of: coordinator.detailScrollPosition, { oldValue, newValue in
-                    coordinator.didDetailPageChanged()
+                    withAnimation(.smooth(duration: 0.15)) {
+                        coordinator.didDetailPageChanged()
+                    }
                 })
                 .background {
                     if let selectedItem = coordinator.selectedItem {
@@ -46,9 +49,47 @@ struct Detail: View {
                             })
                     }
                 }
+                .offset(coordinator.offset)
+                
+                Rectangle()
+                    .foregroundStyle(.clear)
+                    .frame(width: 10)
+                    .contentShape(.rect)
+                    .gesture(
+                        DragGesture(minimumDistance: 0)
+                            .onChanged{ value in
+                                let translation = value.translation
+                                coordinator.offset = translation
+                                /// Progress for Fading Out the Detail View
+                                let heightProgress = max(min(translation.height / 200, 1), 0)
+                                coordinator.dragProgress = heightProgress
+                            }
+                            .onEnded{ value in
+                                let translation = value.translation
+                                let velocity = value.velocity
+                                //let width = translation.width + (velocity.width / 5)
+                                let height = translation.height + (velocity.height / 5)
+                                if height > (size.height * 0.5) {
+                                    /// Close View
+                                    coordinator.toggleView(show: false)
+                                } else {
+                                    /// Reset to origin
+                                    withAnimation(.easeInOut(duration: 0.2)) {
+                                        coordinator.offset = .zero
+                                        coordinator.dragProgress = .zero
+                                    }
+                                }
+                            }
+                    )
+                
             } //: GEOMETRY
+            .opacity(coordinator.showDetailView ? 1 : 0)
+            
+            BottomIndicatorView()
+                .offset(y: coordinator.showDetailView ? (120 * coordinator.dragProgress) : 120)
+                .animation(.easeInOut(duration: 0.15), value: coordinator.showDetailView)
+            
         } //: VSTACK
-        .opacity(coordinator.showDetailView ? 1 : 0)
         .onAppear {
             coordinator.toggleView(show: true)
         }
@@ -94,8 +135,57 @@ struct Detail: View {
         .padding([.top, .horizontal], 15)
         .padding(.bottom, 10)
         .background(.ultraThinMaterial)
-        .offset(y: coordinator.showDetailView ? 0 : -120)
+        .offset(y: coordinator.showDetailView ? (-120 * coordinator.dragProgress) : -120)
         .animation(.easeInOut(duration: 0.15), value: coordinator.showDetailView)
+    }
+    
+    /// Bottom Indicator View
+    @ViewBuilder
+    private func BottomIndicatorView() -> some View {
+        GeometryReader {
+            let size = $0.size
+            ScrollView(.horizontal) {
+                LazyHStack(spacing: 5) {
+                    ForEach(coordinator.items) { item in
+                        if let image = item.previewImage {
+                            Image(uiImage: image)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 50, height: 50)
+                                .clipShape(.rect(cornerRadius: 10))
+                                .scaleEffect(0.97)
+                        }
+                    }
+                } //: Lazy H-Stack
+                .padding(.vertical, 10)
+                .scrollTargetLayout()
+            } //: H-SCROLL
+            /// 50 - item size inside ScrollView
+            .safeAreaPadding(.horizontal, (size.width - 50) / 2)
+            .overlay {
+                /// Active Indicator Icon
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.primary, lineWidth: 2)
+                    .frame(width: 50, height: 50)
+                    .allowsHitTesting(false)
+            }
+            .scrollTargetBehavior(.viewAligned)
+            .scrollPosition(id: .init(get: {
+                return coordinator.detailIndicatorPosition
+            }, set: {
+                coordinator.detailIndicatorPosition = $0
+            }))
+            .scrollIndicators(.hidden)
+            .onChange(of: coordinator.detailIndicatorPosition) { oldValue, newValue in
+                coordinator.didDetailIndicatorPageChanged()
+            }
+        } //: GEOMETRY
+        .frame(height: 70)
+        .background {
+            Rectangle()
+                .fill(.ultraThinMaterial)
+                .ignoresSafeArea()
+        }
     }
     
 }
