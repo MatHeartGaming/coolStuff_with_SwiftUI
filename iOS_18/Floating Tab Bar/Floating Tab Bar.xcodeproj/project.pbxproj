@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CEEAB9542C7DBB22002377C9 /* MorphingShapeEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEAB9532C7DBB22002377C9 /* MorphingShapeEffect.swift */; };
 		FEBDC88D2C7CAAF700E54553 /* Floating_Tab_BarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEBDC88C2C7CAAF700E54553 /* Floating_Tab_BarApp.swift */; };
 		FEBDC88F2C7CAAF700E54553 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEBDC88E2C7CAAF700E54553 /* ContentView.swift */; };
 		FEBDC8912C7CAAF800E54553 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEBDC8902C7CAAF800E54553 /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CEEAB9532C7DBB22002377C9 /* MorphingShapeEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorphingShapeEffect.swift; sourceTree = "<group>"; };
 		FEBDC8892C7CAAF700E54553 /* Floating Tab Bar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Floating Tab Bar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEBDC88C2C7CAAF700E54553 /* Floating_Tab_BarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Floating_Tab_BarApp.swift; sourceTree = "<group>"; };
 		FEBDC88E2C7CAAF700E54553 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				FEBDC89E2C7CAC8300E54553 /* CustomTabBar.swift */,
+				CEEAB9532C7DBB22002377C9 /* MorphingShapeEffect.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEEAB9542C7DBB22002377C9 /* MorphingShapeEffect.swift in Sources */,
 				FEBDC89F2C7CAC8300E54553 /* CustomTabBar.swift in Sources */,
 				FEBDC89C2C7CABBB00E54553 /* Tab.swift in Sources */,
 				FEBDC88F2C7CAAF700E54553 /* ContentView.swift in Sources */,

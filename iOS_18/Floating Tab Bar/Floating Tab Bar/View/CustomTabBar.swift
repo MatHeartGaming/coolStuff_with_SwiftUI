@@ -84,11 +84,23 @@ struct CustomTabBar: View {
                     print("Microphone")
                 }
             } label: {
-                MorphingSymbolView(symbol: activeTab == .home ? "person.fill" : "mic.fill",
-                                   config: .init(font: .title3,
-                                                 frame: .init(width: 42, height: 42),
-                                                 radius: 2, foregroundColor: activeForeground,
-                                                 keyFrameDuration: 0.3, .smooth(duration: 0.3, extraBounce: 0))
+                MorphingSymbolView(
+                    symbol: activeTab == .home ? "person.fill" : "mic.fill",
+                    config: .init(
+                        font: .title3,
+                        frame: .init(
+                            width: 42,
+                            height: 42
+                        ),
+                        radius: 2,
+                        foregroundColor: activeForeground,
+                        keyFrameDuration: 0.3,
+                        symbolAnimation: 
+                                .smooth(
+                                    duration: 0.3,
+                                    extraBounce: 0
+                                )
+                    )
                 )
                 Image(systemName: activeTab == .home ? "person.fill" : "slider.vertical.3")
                     .font(.title3)
