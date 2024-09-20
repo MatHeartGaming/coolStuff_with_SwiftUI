@@ -7,12 +7,25 @@
 
 import SwiftUI
 import SwiftData
+import CryptoKit
 
 struct ContentView: View {
     
     // MARK: Properties
     @Query(sort: [.init(\Transaction.transactionDate, order: .reverse)], animation: .snappy) private var transactions: [Transaction]
     @Environment(\.modelContext) private var context
+    
+    /// UI
+    @State private var showAlertTF: Bool = false
+    @State private var keyTF: String = ""
+    
+    /// Exporter
+    @State private var exportItem: TransactionTransferable?
+    @State private var showFileExporter: Bool = false
+    
+    /// Importer
+    @State private var showFileImporter: Bool = false
+    @State private var importedURL: URL?
     
     var body: some View {
         NavigationStack {
@@ -25,14 +38,14 @@ struct ContentView: View {
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        
+                        showAlertTF.toggle()
                     } label: {
                         Image(systemName: "square.and.arrow.up")
                     }
                 } //: Item Trailing
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
-                        
+                        showFileImporter.toggle()
                     } label: {
                         Image(systemName: "square.and.arrow.down")
                     }
@@ -48,10 +61,108 @@ struct ContentView: View {
                 } //: Item Leading
             }
         } //: NAVIGATION
+        .alert("Enter Key", isPresented: $showAlertTF) {
+            TextField("Key", text: $keyTF)
+                .autocorrectionDisabled()
+            
+            Button("Cancel", role: .cancel) {
+                keyTF = ""
+                importedURL = nil
+            }
+            
+            Button(importedURL != nil ? "Import" : "Export") {
+                if importedURL != nil {
+                    importData()
+                } else {
+                    exportData()
+                }
+            }
+        }
+        .fileExporter(isPresented: $showFileExporter, item: exportItem, contentTypes: [.data], defaultFilename: "Transactions") { result in
+            switch result {
+            case .success(_):
+                print("Success!")
+            case .failure(let error):
+                print("Export Failed \(error.localizedDescription)")
+            }
+            exportItem = nil
+        } onCancellation: {
+            exportItem = nil
+        } //: FIle Exporter
+        .fileImporter(isPresented: $showFileImporter, allowedContentTypes: [.data]) { result in
+            switch result {
+                case .success(let url):
+                importedURL = url
+                showAlertTF.toggle()
+                case .failure(let error):
+                print("Import Failed \(error.localizedDescription)")
+            }
+        }
     }
     
     
     // MARK: Functions
+    
+    private func exportData() {
+        Task.detached(priority: .background) {
+            do {
+                let container = try ModelContainer(for: Transaction.self)
+                let context = ModelContext(container)
+                
+                let descriptor = FetchDescriptor(sortBy: [.init(\Transaction.transactionDate, order: .reverse)])
+                let allObjects = try context.fetch(descriptor)
+                let exportItem = await TransactionTransferable(transactions: allObjects, key: keyTF)
+                
+                /// UI Update on Main Thread
+                await MainActor.run {
+                    self.exportItem = exportItem
+                    showFileExporter = true
+                    keyTF = ""
+                }
+                
+            } catch {
+                print(error.localizedDescription)
+                await MainActor.run {
+                    keyTF = ""
+                }
+            }
+        }
+    }
+    
+    private func importData() {
+        guard let url = importedURL else { return }
+        Task.detached(priority: .background) {
+            do {
+                /// Sometimes files permission can avoid reading the contents from it. This will avoid those scenarios.
+                guard url.startAccessingSecurityScopedResource() else { return }
+                
+                /// Create a new container in order not to trigger too many UI updates
+                let container = try ModelContainer(for: Transaction.self)
+                let context = ModelContext(container)
+                
+                let encryptedData = try Data(contentsOf: url)
+                let decryptedData = try await AES.GCM.open(.init(combined: encryptedData), using: .key(keyTF))
+                
+                let allTransactions = try JSONDecoder().decode([Transaction].self, from: decryptedData)
+                
+                print(allTransactions.count)
+                
+                for transaction in allTransactions {
+                    context.insert(transaction)
+                }
+                
+                try context.save()
+                
+                url.stopAccessingSecurityScopedResource()
+            } catch {
+                print(error.localizedDescription)
+                await MainActor.run {
+                    keyTF = ""
+                }
+                url.stopAccessingSecurityScopedResource()
+            }
+        }
+    }
     
     private func generateRandomTransaction() -> Transaction {
             let names = ["Grocery", "Rent", "Electric Bill", "Salary", "Investment"]
@@ -116,6 +227,34 @@ class Transaction: Codable {
         try container.encode(transactionCategory, forKey: .transactionCategory)
     }
     
+}
+
+struct TransactionTransferable: Transferable {
+    var transactions: [Transaction]
+    var key: String
+    
+    static var transferRepresentation: some TransferRepresentation {
+        DataRepresentation(exportedContentType: .data, exporting: {
+            let data = try JSONEncoder().encode($0.transactions)
+            guard let encrypedData = try AES.GCM.seal(data, using: .key($0.key)).combined else {
+                throw EncryptionError.encryptionFailed
+            }
+            return encrypedData
+        })
+    }
+    
+    enum EncryptionError: Error {
+        case encryptionFailed
+    }
+    
+}
+
+extension SymmetricKey {
+    static func key(_ value: String) -> SymmetricKey {
+        let keyData = value.data(using: .utf8)!
+        let sha256 = SHA256.hash(data: keyData)
+        return .init(data: sha256)
+    }
 }
 
 enum TransactionCategory: String, Codable {

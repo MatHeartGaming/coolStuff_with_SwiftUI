@@ -12,6 +12,7 @@ struct Import_Export_SwiftData_With_PwdApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .modelContainer(for: Transaction.self)
         }
     }
 }
