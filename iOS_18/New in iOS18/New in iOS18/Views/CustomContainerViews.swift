@@ -28,7 +28,7 @@ struct CustomViewGroup<Content: View>: View {
     
     var body: some View {
         VStack(spacing: 10) {
-            Group(subviewsOf: content) { collection in
+            Group(subviews: content) { collection in
                 ForEach(collection) { subview in
                     let index = collection.firstIndex(where: { $0.id == subview.id })
                     subview
@@ -75,7 +75,7 @@ struct CustomViewSection<Content: View>: View {
     
     var body: some View {
         VStack(spacing: 10) {
-            Group(sectionsOf: content) { collection in
+            Group(sections: content) { collection in
                 //standardWay(collection)
                 
                 /// Since SubView collections conforms to RandomAccessCollection we can use subscripts too.

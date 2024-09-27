@@ -29,7 +29,7 @@ struct CustomView<Content: View>: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            ForEach(subviewOf: content) { subview in
+            ForEach(subviews: content) { subview in
                 let index = subview.containerValues.floatIndex
                 
                 subview
