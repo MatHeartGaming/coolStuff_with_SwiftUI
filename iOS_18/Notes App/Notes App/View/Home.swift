@@ -6,55 +6,67 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct Home: View {
     
     // MARK: Properties
     @State private var searchText: String = ""
     @State private var selectedNote: Note?
+    @State private var deleteNote: Note?
     @State private var animateView: Bool = false
+    @FocusState private var isKeyboardActive: Bool
+    @State private var titleNoteSize: CGSize = .zero
     @Namespace private var animation
-    @State private var notes: [Note] = mockNotes
+    //@Query(sort: [.init(\Note.dateCreated, order: .reverse)], animation: .snappy) private var notes: [Note]
+    @Environment(\.modelContext) private var context
     
     var body: some View {
-        ScrollView(.vertical) {
-            VStack(spacing: 20) {
-                SearchBar()
-                
-                LazyVGrid(columns: Array(repeating: GridItem(), count: 2)) {
-                    ForEach($notes) { $note in
-                        CardView(note)
-                            .frame(height: 160)
-                            .onTapGesture {
-                                guard selectedNote == nil else { return }
-                                
-                                selectedNote = note
-                                note.allowsHitTesting = true
-                                withAnimation(noteAnimation) {
-                                    animateView = true
-                                }
-                            }
-                    } //: Loop Notes
+        SearchQueryView(searchText: searchText) { notes in
+            ScrollView(.vertical) {
+                VStack(spacing: 20) {
+                    SearchBar()
                     
-                } //: Lazy VGRID
-                
-            } //: VSTACK
-        } //: V-SCROLL
-        .safeAreaPadding(15)
-        .overlay {
-            GeometryReader { _ in
-                /// This loop avoids weird effects when opening a new note while the previous one is still closing, confusing the matchedGeometry Effect.
-                ForEach(notes) { note in
-                    if note.id == selectedNote?.id, animateView {
-                        DetailView(animation: animation, note: note)
+                    LazyVGrid(columns: Array(repeating: GridItem(), count: 2)) {
+                        ForEach(notes) { note in
+                            CardView(note)
+                                .frame(height: 160)
+                                .onTapGesture {
+                                    guard selectedNote == nil else { return }
+                                    isKeyboardActive = false
+                                    
+                                    selectedNote = note
+                                    note.allowsHitTesting = true
+                                    withAnimation(noteAnimation) {
+                                        animateView = true
+                                    }
+                                }
+                        } //: Loop Notes
+                    } //: Lazy VGRID
+                    
+                } //: VSTACK
+            } //: V-SCROLL
+            .safeAreaPadding(15)
+            .overlay {
+                GeometryReader {
+                    let size = $0.size
+                    /// This loop avoids weird effects when opening a new note while the previous one is still closing, confusing the matchedGeometry Effect.
+                    ForEach(notes) { note in
+                        if note.id == selectedNote?.id, animateView {
+                            DetailView(size: size,
+                                       titleNoteSize: titleNoteSize,
+                                       animation: animation,
+                                       note: note)
                             .ignoresSafeArea(.container, edges: .top)
+                        }
                     }
-                }
+                } //: GEOMETRY
             }
-        }
-        .safeAreaInset(edge: .bottom, spacing: 0) {
-            BottomBar()
-        }
+            .safeAreaInset(edge: .bottom, spacing: 0) {
+                BottomBar()
+            }
+        } //: Search Query View
+        .focused($isKeyboardActive)
     }
     
     
@@ -81,42 +93,81 @@ struct Home: View {
             } else {
                 RoundedRectangle(cornerRadius: 10)
                     .fill(note.color.gradient)
+                    .overlay {
+                        TitleNoteView(size: titleNoteSize, note: note)
+                    }
                     .matchedGeometryEffect(id: note.id, in: animation)
             }
         }
+        .onGeometryChange(for: CGSize.self) {
+            $0.size
+        } action: { newValue in
+            titleNoteSize = newValue
+        }
+
     }
     
     @ViewBuilder
     private func BottomBar() -> some View {
         HStack(spacing: 15) {
-            Button {
-                
-            } label: {
-                Image(systemName: selectedNote == nil ? "plus.circle.fill" : "trash.fill")
-                    .font(.title2)
-                    .foregroundStyle(selectedNote == nil ? Color.primary : .red)
-                    .contentShape(.rect)
-                    .contentTransition(.symbolEffect(.replace))
-            } //: Button Plus
+            Group {
+                if !isKeyboardActive {
+                    Button {
+                        if selectedNote == nil {
+                            createEmptyNote()
+                        } else {
+                            selectedNote?.allowsHitTesting = false
+                            deleteNote = selectedNote
+                            withAnimation(noteAnimation.logicallyComplete(after: 0.1), completionCriteria: .logicallyComplete) {
+                                selectedNote = nil
+                                animateView = false
+                            } completion: {
+                                deleteNoteFromContext()
+                            }
+                        }
+                    } label: {
+                        Image(systemName: selectedNote == nil ? "plus.circle.fill" : "trash.fill")
+                            .font(.title2)
+                            .foregroundStyle(selectedNote == nil ? Color.primary : .red)
+                            .contentShape(.rect)
+                            .contentTransition(.symbolEffect(.replace))
+                    } //: Button Plus
+                }
+            }
             
             Spacer(minLength: 0)
             
-            if selectedNote != nil {
-                Button {
-                    if let firstIndex = notes.firstIndex(where: { $0.id == selectedNote?.id }) {
-                        notes[firstIndex].allowsHitTesting = false
+            ZStack {
+                if isKeyboardActive {
+                    Button("Done") {
+                        isKeyboardActive = false
                     }
-                    withAnimation(noteAnimation) {
-                        animateView = false
-                        selectedNote = nil
-                    }
-                } label: {
-                    Image(systemName: "square.grid.2x2.fill")
-                        .font(.title3)
-                        .foregroundStyle(Color.primary)
-                        .contentShape(.rect)
-                } //: Button Grid
-                .transition(.opacity)
+                    .font(.title3)
+                    .foregroundStyle(Color.primary)
+                    .transition(.blurReplace)
+                }
+                
+                if selectedNote != nil && !isKeyboardActive {
+                    Button {
+                        selectedNote?.allowsHitTesting = false
+                        
+                        if let selectedNote, (selectedNote.isEmpty) {
+                            deleteNote = selectedNote
+                        }
+                        withAnimation(noteAnimation.logicallyComplete(after: 0.1), completionCriteria: .logicallyComplete) {
+                            animateView = false
+                            selectedNote = nil
+                        } completion: {
+                            deleteNoteFromContext()
+                        }
+                    } label: {
+                        Image(systemName: "square.grid.2x2.fill")
+                            .font(.title3)
+                            .foregroundStyle(Color.primary)
+                            .contentShape(.rect)
+                    } //: Button Grid
+                    .transition(.blurReplace)
+                }
             }
 
         } //: HSTACK
@@ -127,14 +178,16 @@ struct Home: View {
                 .opacity(selectedNote != nil ? 0 : 1)
         }
         .overlay {
-            if selectedNote != nil {
+            if selectedNote != nil && !isKeyboardActive {
                 CardColorPicker()
                     .transition(.blurReplace)
             }
         }
-        .padding(15)
+        .padding(.horizontal, 15)
+        .padding(.vertical, isKeyboardActive ? 8 : 15)
         .background(.bar)
         .animation(noteAnimation, value: selectedNote != nil)
+        .animation(noteAnimation, value: isKeyboardActive)
     }
     
     @ViewBuilder
@@ -142,44 +195,45 @@ struct Home: View {
         HStack(spacing: 10) {
             ForEach(1...5, id: \.self) { index in
                 Circle()
-                    .fill(.red.gradient)
+                    .fill(Color("Note \(index)"))
                     .frame(width: 20, height: 20)
+                    .contentShape(.rect)
+                    .onTapGesture {
+                        selectedNote?.colorString = "Note \(index)"
+                    }
             }
         } //: HSTACK
     }
     
-}
-
-struct DetailView: View {
     
-    var animation: Namespace.ID
-    var note: Note
+    // MARK: Functions
     
-    /// UI
-    @State private var animateLayers: Bool = false
-    
-    var body: some View {
-        RoundedRectangle(cornerRadius: animateLayers ? 0 : 10)
-            .fill(note.color.gradient)
-            .matchedGeometryEffect(id: note.id, in: animation)
-        /// To remove the fade effect when the Detail View appears
-            .transition(.offset(y: 1))
-            .allowsTightening(note.allowsHitTesting)
-            .onChange(of: note.allowsHitTesting, initial: true) { oldValue, newValue in
-                withAnimation(noteAnimation) {
-                    animateLayers = newValue
-                }
+    private func createEmptyNote() {
+        let colors: [String] = (1...5).compactMap({ "Note \($0)" })
+        let randomColor = colors.randomElement()!
+        let note = Note(colorString: randomColor, title: "", content: "")
+        context.insert(note)
+        Task {
+            try? await Task.sleep(for: .seconds(0))
+            selectedNote = note
+            selectedNote?.allowsHitTesting = true
+            withAnimation(noteAnimation) {
+                animateView = true
             }
+        }
     }
     
-}
-
-extension View {
-    var noteAnimation: Animation {
-        .smooth(duration: 0.3, extraBounce: 0)
+    private func deleteNoteFromContext() {
+        if let deleteNote {
+            context.delete(deleteNote)
+            try? context.save()
+            self.deleteNote = nil
+        }
     }
+    
 }
 
 #Preview {
     ContentView()
+        .modelContainer(for: Note.self)
 }
