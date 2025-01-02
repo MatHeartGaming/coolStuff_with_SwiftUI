@@ -12,6 +12,7 @@ struct Reduce_Images_Memory_ConsumptionApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .modelContainer(for: Cache.self)
         }
     }
 }

@@ -14,7 +14,8 @@ struct ContentView: View {
                 HStack {
                     ForEach(1...3, id: \.self) { index in
                         let size = CGSize(width: 100, height: 150)
-                        DownsizedImageView(image: UIImage(named: "Pic\(index)"), size: size) { image in
+                        let id = "Pic\(index)"
+                        DownsizedImageView(id: id, image: UIImage(named: id), size: size) { image in
                             GeometryReader {
                                 let sizeGeom = $0.size
                                 image
@@ -37,6 +38,7 @@ struct ContentView: View {
 
 struct DownsizedImageView<Content: View>: View {
     
+    var id: String
     var image: UIImage?
     var size: CGSize
     
@@ -70,20 +72,35 @@ struct DownsizedImageView<Content: View>: View {
     
     /// Creating Downsized
     private func createDownsizedImage(_ image: UIImage?) {
-        guard let image else { return }
-        
-        let aspectSize = image.size.aspectFit(size)
-        /// Creation of smaller version of the image in separate thread
-        Task.detached(priority: .high) {
-            let renderer = UIGraphicsImageRenderer(size: aspectSize)
-            let resizedImage = renderer.image { ctx in
-                image.draw(in: .init(origin: .zero, size: aspectSize))
-            }
+        if let cachedData = try? CacheManager.shared.get(id: id)?.data,
+           let uiImage = UIImage(data: cachedData) {
+            downsizingImageView = Image(uiImage: uiImage)
+            print("From Cache")
+        } else {
+            print("Downsizing...")
+            guard let image else { return }
             
-            /// Update UI in Main Thread
-            await MainActor.run {
-                downsizingImageView = Image(uiImage: resizedImage)
-            }
+            let aspectSize = image.size.aspectFit(size)
+            /// Creation of smaller version of the image in separate thread
+            Task.detached(priority: .high) {
+                let renderer = UIGraphicsImageRenderer(size: aspectSize)
+                let resizedImage = renderer.image { ctx in
+                    image.draw(in: .init(origin: .zero, size: aspectSize))
+                }
+                
+                /// Storing Cache Data
+                if let jpegData = resizedImage.jpegData(compressionQuality: 1) {
+                    /// Since CacheManager is MainActor, it should run on MainActor
+                    await MainActor.run {
+                        try? CacheManager.shared.insert(id: id, data: jpegData, expirationDays: 7)
+                    }
+                }
+                
+                /// Update UI in Main Thread
+                await MainActor.run {
+                    downsizingImageView = Image(uiImage: resizedImage)
+                }
+            } //: Task
         }
     }
     
