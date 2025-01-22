@@ -14,6 +14,7 @@ struct Home: View {
     @State private var isSelectionEnabled: Bool = false
     @State private var panGesture: UIPanGestureRecognizer?
     @State private var properties: SelectionProperties = .init()
+    @State private var scrollProperties: ScrollProperties = .init()
     
     var body: some View {
         ScrollView(.vertical) {
@@ -33,20 +34,54 @@ struct Home: View {
                         .font(.caption)
                         .buttonStyle(.borderedProminent)
                         .buttonBorderShape(.capsule)
-                    }
+                    } //: Text Overlay
+                LazyVGrid(columns: Array(repeating: GridItem(), count: 4)) {
+                    ForEach($items) { $item in
+                        ItemCardView($item)
+                    } //: Loop Items
+                } //: Lazy V-GRID
             } //: VSTACK
-            LazyVGrid(columns: Array(repeating: GridItem(), count: 4)) {
-                ForEach($items) { $item in
-                    ItemCardView($item)
-                }
-            } //: Lazy V-GRID
+            .scrollTargetLayout()
         } //: V-SCROLL
         .safeAreaPadding(15)
+        .scrollPosition($scrollProperties.position)
+        .overlay(alignment: .top) {
+            scrollDetectionRegion()
+        }
+        .overlay(alignment: .bottom) {
+            scrollDetectionRegion(false)
+        }
         .onAppear {
             createSampleData()
         }
         .onChange(of: isSelectionEnabled, { oldValue, newValue in
             panGesture?.isEnabled = newValue
+        })
+        .onScrollGeometryChange(for: CGFloat.self, of: {
+            $0.contentOffset.y + $0.contentInsets.top
+        }, action: { oldValue, newValue in
+            scrollProperties.currentScrollOffset = newValue
+        })
+        .onChange(of: scrollProperties.direction, { oldValue, newValue in
+            if newValue != .none {
+                
+                guard scrollProperties.timer == nil else { return }
+                
+                scrollProperties.manualScrollOffset = scrollProperties.currentScrollOffset
+                scrollProperties.timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block: { _ in
+                    if newValue == .up {
+                        scrollProperties.manualScrollOffset += 3
+                    }
+                    if newValue == .down {
+                        scrollProperties.manualScrollOffset -= 3
+                    }
+                    
+                    scrollProperties.position.scrollTo(y: scrollProperties.manualScrollOffset)
+                })
+                scrollProperties.timer?.fire()
+            } else {
+                resetTimer()
+            }
         })
         .gesture(
             PanGesture { gesture in
@@ -109,6 +144,25 @@ struct Home: View {
 
     }
     
+    /// Scroll Detection Region
+    @ViewBuilder
+    private func scrollDetectionRegion(_ isTop: Bool = true) -> some View {
+        Rectangle()
+            .foregroundStyle(.clear)
+            .frame(height: 100)
+            .ignoresSafeArea()
+            .onGeometryChange(for: CGRect.self) {
+                $0.frame(in: .global)
+            } action: { newValue in
+                if isTop {
+                    scrollProperties.topRegion = newValue
+                } else {
+                    scrollProperties.bottomRegion = newValue
+                }
+            }
+
+    }
+    
     // MARK: Functions
     
     private func onGestureChange(_ gesture: UIPanGestureRecognizer) {
@@ -132,6 +186,8 @@ struct Home: View {
                     properties.selectedIndices = Set(properties.previousIndices).union(indices).compactMap({ $0 })
                 }
             }
+            
+            scrollProperties.direction = scrollProperties.topRegion.contains(position) ? .down : scrollProperties.bottomRegion.contains(position) ? .up : .none
         }
     }
     
@@ -146,6 +202,16 @@ struct Home: View {
         properties.start = nil
         properties.end = nil
         properties.isDeleteDrag = false
+        
+        resetTimer()
+    }
+    
+    /// Reset Timer
+    private func resetTimer() {
+        scrollProperties.manualScrollOffset = .zero
+        scrollProperties.timer?.invalidate()
+        scrollProperties.timer = nil
+        scrollProperties.direction = .none
     }
     
     private func createSampleData() {
@@ -164,6 +230,24 @@ struct Home: View {
         var previousIndices: [Int] = []
         var toBeDeletedIndices: [Int] = []
         var isDeleteDrag: Bool = false
+    }
+    
+    struct ScrollProperties {
+        var position: ScrollPosition = .init()
+        var currentScrollOffset: CGFloat = 0
+        var manualScrollOffset: CGFloat = 0
+        var timer: Timer?
+        var direction: ScrollDirection = .none
+        
+        /// Screen Regions
+        var topRegion: CGRect = .zero
+        var bottomRegion: CGRect = .zero
+    }
+    
+    enum ScrollDirection {
+        case up
+        case down
+        case none
     }
     
 }
