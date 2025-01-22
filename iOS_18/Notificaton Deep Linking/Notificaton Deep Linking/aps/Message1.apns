@@ -1,0 +1,11 @@
+{
+	"aps": {
+		"alert": {
+			"title": "Push Notifications",
+			"body": "Go To View 1"
+		},
+		"badge": 0,
+	},
+	"pageLink": "View1",
+	"Simulator Target Bundle": "it.matbuompy.Notificaton-Deep-Linking"
+}
