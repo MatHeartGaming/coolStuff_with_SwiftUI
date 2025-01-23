@@ -21,8 +21,9 @@ struct MacOS_Screen_Recording_AppApp: App {
     var body: some Scene {
         /// Only Adding menu bar after the intro is completed
         MenuBarExtra("Mac Recorder", systemImage: "inset.filled.rectangle.badge.record", isInserted: .constant(isUserIntroCompleted)) {
-            
+            MenuView()
         }
+        .menuBarExtraStyle(.window)
         .onChange(of: scenePhase, initial: true) { oldValue, newValue in
             if !isUserIntroCompleted && !introScreenShowed {
                 openWindow(id: "IntroView")
