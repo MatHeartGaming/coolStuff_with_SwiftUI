@@ -25,9 +25,11 @@ struct CustomDisclosureGroup: View {
     
     /// UI
     @State private var isExpanded: Bool = true /// Starts open
-    
+    @State private var gestureRect: CGRect = .zero
+    @EnvironmentObject private var dragProperties: DragProperties
     
     var body: some View {
+        let isDropping = gestureRect.contains(dragProperties.location) && dragProperties.sourceCategory != category
         VStack(alignment: .leading, spacing: 15) {
             
             HStack {
@@ -51,13 +53,25 @@ struct CustomDisclosureGroup: View {
         } //: VSTACK
         .padding(15)
         .padding(.vertical, isExpanded ? 0 : 5)
-        .background(.gray.opacity(0.1))
+        .animation(.easeInOut(duration: 0.2)) {
+            $0
+                .background(isDropping ? .blue.opacity(0.2) : .gray.opacity(0.1))
+        }
+        .background(isDropping ? .blue.opacity(0.2) : .gray.opacity(0.1))
         .clipShape(.rect(cornerRadius: 10))
         .contentShape(.rect)
         .onTapGesture {
             withAnimation(.snappy) {
                 isExpanded.toggle()
             }
+        }
+        .onGeometryChange(for: CGRect.self) {
+            $0.frame(in: .global)
+        } action: { newValue in
+            gestureRect = newValue
+        }
+        .onChange(of: isDropping) { oldValue, newValue in
+            dragProperties.destinationCategory = newValue ? category : nil
         }
     }
     
@@ -72,20 +86,18 @@ struct CustomDisclosureGroup: View {
                 .multilineTextAlignment(.center)
                 .foregroundStyle(.gray)
                 .padding(.vertical, 10)
+                .frame(maxWidth: .infinity)
         } else {
             ForEach(cards) { card in
-                FlashCardView(card: card, categpry: category)
+                FlashCardView(card: card, category: category)
             }
         }
     }
     
 }
 
-#Preview {
-    CustomDisclosureGroup(category: Category())
-}
-
 #Preview("Content View") {
     ContentView()
         .environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
+        .environmentObject(DragProperties())
 }
