@@ -89,7 +89,7 @@ struct SomeCardView: View {
                 
                 ZStack {
                     if let card {
-                        Text(card.subtitle)
+                        Text(card.description)
                             .font(.caption)
                             .foregroundStyle(.gray)
                     } else {
